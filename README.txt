@@ -1,14 +1,12 @@
-Museum Anthropocenicum v2
+Museum Anthropocenicum — home v2 forte
 
-Contenu :
-- index.html
-- ma-0001.html à ma-0005.html
-
-Ajoute dans le même dossier les images :
+Fichiers à garder dans le même dossier que index.html :
+- logo.png
 - ma-0001.jpg
 - ma-0002.jpg
 - ma-0003.jpg
 - ma-0004.jpg
 - ma-0005.jpg
 
-Ensuite remplace les fichiers de ton repo par ceux-là, puis push.
+Ce pack contient uniquement la homepage.
+Il remplace le fichier index.html.
