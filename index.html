@@ -6,539 +6,231 @@
 <title>Museum Anthropocenicum</title>
 <style>
 :root{
-  --bg:#040506;
-  --bg2:#0a0d10;
-  --text:#f3f1ea;
-  --muted:rgba(255,255,255,.72);
-  --soft:rgba(255,255,255,.45);
-  --border:rgba(255,255,255,.12);
-  --panel:rgba(255,255,255,.035);
-  --grid:rgba(255,255,255,.05);
-  --pill:rgba(0,0,0,.58);
+  --bg:#010203;
+  --line:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.68);
+  --faint:rgba(255,255,255,.42);
+  --text:#f5f3ee;
 }
 *{box-sizing:border-box}
+html,body{height:100%}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--text);
   font-family:Inter, Arial, sans-serif;
-  background:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-    radial-gradient(circle at top, #10141a 0%, var(--bg) 45%);
-  background-size: 72px 72px, 72px 72px, auto;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.65) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 76% 24%, rgba(255,255,255,.5) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 28% 72%, rgba(255,255,255,.45) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 80%, rgba(255,255,255,.4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 61% 62%, rgba(255,255,255,.35) 0 1px, transparent 1.5px),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:
+    420px 420px,
+    560px 560px,
+    620px 620px,
+    700px 700px,
+    500px 500px,
+    42px 42px,
+    42px 42px;
 }
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-
+a{text-decoration:none;color:inherit}
+.shell{
+  min-height:100vh;
+  width:min(1260px, calc(100% - 48px));
+  margin:0 auto;
+  padding:18px 0 28px;
+  display:flex;
+  flex-direction:column;
+}
 .topbar{
-  position:sticky; top:0; z-index:100;
-  display:flex; justify-content:space-between; align-items:center; gap:22px;
-  padding:18px 24px;
-  background:rgba(0,0,0,.72);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  padding:10px 0 18px;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-.brand{display:flex; align-items:center; gap:14px; min-width:0}
-.brand-logo{
-  width:54px; height:54px; object-fit:contain; flex:0 0 auto;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,.05));
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
 }
-.brand-text{min-width:0}
-.brand-kicker, .eyebrow, .panel-kicker, .section-kicker, .taxon, .meta dt, .timeline-no{
-  font-size:11px;
-  letter-spacing:.3em;
+.brand img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+}
+.brand-name{
+  font-size:22px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.nav{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.nav a{
+  font-size:15px;
+  letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--soft);
 }
-.brand-sub{
-  margin-top:6px;
-  font-size:18px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.nav{
-  display:flex; gap:8px; flex-wrap:wrap;
-  padding:6px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:rgba(255,255,255,.02);
-}
-.nav a{
-  padding:11px 17px;
-  border-radius:999px;
-  color:var(--muted);
-  font-size:15px;
-}
-.nav a:hover{background:#fff;color:#000}
-
-.wrap{
-  width:min(1380px, calc(100% - 32px));
-  margin:0 auto;
-  padding:34px 0 90px;
-}
+.nav a:hover{color:#fff}
 
 .hero{
-  display:grid;
-  grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);
-  gap:28px;
-  align-items:start;
-  padding:28px 0 46px;
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:58px 0 42px;
 }
-.hero-copy h1{
-  margin:16px 0 0;
-  font-size:clamp(56px,8vw,112px);
-  line-height:.9;
-  letter-spacing:-.06em;
+.hero-inner{
+  width:min(840px, 100%);
+}
+.hero-logo{
+  width:min(180px, 34vw);
+  margin:0 auto 28px;
+  opacity:.98;
+}
+h1{
+  margin:0;
+  font-size:clamp(36px, 5.2vw, 72px);
+  line-height:1.02;
+  letter-spacing:.08em;
+  font-weight:500;
   text-transform:uppercase;
-  max-width:10ch;
 }
-.hero-copy p{
-  margin:24px 0 0;
-  max-width:780px;
-  color:var(--muted);
-  font-size:24px;
-  line-height:1.6;
+.kicker{
+  margin-top:28px;
+  font-size:clamp(18px, 2vw, 30px);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--text);
+}
+.sub{
+  margin:20px auto 0;
+  max-width:760px;
+  font-size:clamp(14px, 1.2vw, 22px);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--soft);
+  line-height:1.8;
 }
 .actions{
   display:flex;
-  gap:14px;
+  justify-content:center;
+  gap:16px;
   flex-wrap:wrap;
-  margin-top:28px;
+  margin-top:42px;
 }
 .btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:14px 22px;
-  border-radius:999px;
-  border:1px solid var(--border);
+  min-width:210px;
+  padding:16px 22px;
+  border:1px solid rgba(255,255,255,.28);
+  text-align:center;
+  font-size:15px;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:13px;
+  color:#fff;
+  background:rgba(255,255,255,.02);
 }
-.btn-solid{background:#fff;color:#000}
-.btn-outline{background:transparent;color:#fff}
-
-.panel,.card,.timeline-item,.research-panel{
-  border:1px solid var(--border);
-  background:var(--panel);
-  border-radius:30px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
-}
-.panel{padding:24px}
-.terminal{
-  margin-top:18px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size:14px;
-  line-height:1.72;
-  color:rgba(255,255,255,.84);
-}
-.terminal p{margin:0}
-.question{
-  margin-top:22px;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.7;
-}
-.hero-logo{
-  width:110px;
-  opacity:.92;
-  margin-bottom:8px;
+.btn:hover{
+  background:rgba(255,255,255,.08);
 }
 
-.section{
-  padding:54px 0 10px;
-}
-.section h2{
-  margin:14px 0 0;
-  font-size:clamp(42px,6vw,78px);
-  line-height:.95;
-  letter-spacing:-.04em;
-  text-transform:uppercase;
-}
-.section-lead{
-  max-width:900px;
-  margin-top:18px;
-  color:var(--muted);
-  font-size:22px;
-  line-height:1.7;
-}
-
-.timeline{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-  margin-top:30px;
-}
-.timeline-item{padding:24px}
-.timeline h3{
-  margin:10px 0 0;
-  font-size:30px;
-  letter-spacing:-.03em;
-}
-.timeline p{
-  margin-top:12px;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:18px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:22px;
-  margin-top:32px;
-}
-.card{overflow:hidden}
-.card-image{
+.viewport{
   position:relative;
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#0d0f12;
-  border-bottom:1px solid var(--border);
+  margin-top:46px;
+  min-height:120px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255,255,255,.22) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 56%, rgba(255,255,255,.18) 0 1px, transparent 1.5px),
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 380px 380px, 520px 520px, 48px 48px, 48px 48px;
 }
-.card-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:grayscale(100%) contrast(1.08);
-  transition: transform .35s ease, opacity .35s ease;
-}
-.card:hover .card-image img{transform:scale(1.03);opacity:.95}
-.tag{
+.viewport::before{
+  content:"";
   position:absolute;
-  left:14px; bottom:14px;
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:var(--pill);
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(255,255,255,.02), transparent 36%, transparent 64%, rgba(255,255,255,.02));
+  pointer-events:none;
 }
-.card-body{padding:18px 20px 22px}
-.card h3{
-  margin:12px 0 8px;
-  font-size:36px;
-  line-height:1;
-  letter-spacing:-.03em;
-}
-.spec-intro{
-  color:var(--muted);
-  line-height:1.75;
-  font-size:17px;
-}
-.taxon{
-  margin-top:2px;
-}
-.meta{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px 18px;
-  margin-top:16px;
+.statusbar{
+  margin-top:18px;
+  display:flex;
+  gap:34px;
+  flex-wrap:wrap;
   padding-top:16px;
-  border-top:1px solid var(--border);
-}
-.meta dd{
-  margin:6px 0 0;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-.research-grid{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:18px;
-  margin-top:28px;
-}
-.research-panel{padding:24px}
-.research-panel p{
-  color:var(--muted);
-  line-height:1.8;
-  font-size:17px;
-}
-
-.footer-note{
-  margin-top:16px;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
   color:var(--soft);
-  font-size:14px;
+}
+.statusbar strong{
+  color:#fff;
+  font-weight:400;
 }
 
-@media (max-width: 980px){
-  .hero{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .research-grid{grid-template-columns:1fr}
-}
-@media (max-width: 760px){
+@media (max-width: 900px){
   .topbar{flex-direction:column; align-items:flex-start}
-  .nav{width:100%; overflow:auto; flex-wrap:nowrap}
-  .wrap{width:min(100% - 24px, 1380px)}
-  .hero-copy p,.section-lead{font-size:18px}
-  .card h3{font-size:30px}
-  .brand-logo{width:46px;height:46px}
-  .brand-sub{font-size:15px}
-  .question{font-size:16px}
+  .nav{gap:18px}
+  .brand-name{font-size:18px}
+  .shell{width:min(100% - 24px, 1260px)}
+  .btn{min-width:unset; width:100%}
+  .actions{flex-direction:column}
+  .statusbar{gap:14px}
 }
 </style>
 </head>
 <body>
-
-<header class="topbar">
-  <div class="brand">
-    <img class="brand-logo" src="logo.png" alt="Museum Anthropocenicum logo">
-    <div class="brand-text">
-      <div class="brand-kicker">MUSEUM ANTHROPOCENICUM</div>
-      <div class="brand-sub">archive_of_anthropocene_artifacts</div>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="Museum Anthropocenicum logo">
+      <div class="brand-name">Museum Anthropocenicum</div>
     </div>
-  </div>
 
-  <nav class="nav">
-    <a href="#recit">Récit</a>
-    <a href="#archive">Archive</a>
-    <a href="#research">Research</a>
-    <a href="#participer">Participer</a>
-  </nav>
-</header>
+    <nav class="nav">
+      <a href="#recit">Récit</a>
+      <a href="#archive">Archive</a>
+      <a href="#research">Recherche</a>
+    </nav>
+  </header>
 
-<main class="wrap">
-
-  <section class="hero">
-    <div class="hero-copy">
+  <main class="hero">
+    <div class="hero-inner">
       <img class="hero-logo" src="logo.png" alt="">
-      <div class="eyebrow">SPECULATIVE ARCHAEOLOGY / OPEN ARCHIVE / FUTURE FIELDWORK</div>
       <h1>Museum Anthropocenicum</h1>
-      <p>
-        Un musée spéculatif consacré aux restes matériels de la civilisation humaine.
-        Les visiteurs entrent dans l’archive comme des archéologues du futur, observent
-        les vestiges du Stratum Anthropocenicum et relisent l’histoire d’une espèce
-        qui a laissé ses objets survivre à ses intentions.
-      </p>
+      <div class="kicker">Archive of Anthropocene Artifacts</div>
+      <div class="sub">Open archaeological database of human civilization remains</div>
+
       <div class="actions">
-        <a class="btn btn-solid" href="#archive">Entrer dans l’archive</a>
-        <a class="btn btn-outline" href="#recit">Lire le récit</a>
+        <a class="btn" href="#recit">[ Récit ]</a>
+        <a class="btn" href="#archive">[ Archive ]</a>
+        <a class="btn" href="#research">[ Recherche ]</a>
       </div>
+
+      <div class="viewport" aria-hidden="true"></div>
     </div>
+  </main>
 
-    <aside class="panel">
-      <div class="panel-kicker">MUSEUM ANTHROPOCENICUM // ARCHIVE INTERFACE</div>
-      <div class="terminal">
-        <p>&gt; system_boot</p>
-        <p>archive_status .......... online</p>
-        <p>planetary_layer ........ detected</p>
-        <p>stratum_anthropocenicum  active</p>
-        <p>research_mode .......... speculative</p>
-        <p style="height:10px"></p>
-        <p>&gt; active_modules</p>
-        <p>01 // récit</p>
-        <p>02 // archive</p>
-        <p>03 // research</p>
-        <p>04 // participation</p>
-      </div>
-      <p class="question">
-        Quelle forme de civilisation laisse derrière elle une couche géologique
-        composée majoritairement de ses propres auxiliaires de confort ?
-      </p>
-    </aside>
-  </section>
-
-  <section id="recit" class="section">
-    <div class="section-kicker">NARRATIVE ARCHIVE</div>
-    <h2>Récit</h2>
-    <p class="section-lead">
-      Cinq mouvements structurent l’archéologie spéculative du musée :
-      arrivée, civilisation, contenants, rebut, archive.
-    </p>
-
-    <div class="timeline">
-      <article class="timeline-item">
-        <div class="timeline-no">01</div>
-        <h3>Arrivée sur Terre</h3>
-        <p>
-          Après plusieurs millénaires d’absence, les missions de terrain revinrent
-          sur la planète anciennement désignée Terre. À première vue, la biosphère
-          semblait reprendre ses droits. À seconde vue, un feuillet discret mais
-          omniprésent surgissait partout : polymères, pigments, mousses, grilles,
-          emballages, récipients.
-        </p>
-      </article>
-
-      <article class="timeline-item">
-        <div class="timeline-no">02</div>
-        <h3>La civilisation des contenants</h3>
-        <p>
-          Les premiers relevés indiquent une société fascinée par le transport,
-          l’enrobage, la fermeture, l’ouverture facile et l’usage unique.
-          Les objets n’étaient pas de simples outils : ils constituaient une
-          cosmologie entière de la circulation et de la conservation provisoire.
-        </p>
-      </article>
-
-      <article class="timeline-item">
-        <div class="timeline-no">03</div>
-        <h3>Mystique du rebut</h3>
-        <p>
-          Cette civilisation a confié sa mémoire aux restes. Bouées, bidons, filets,
-          bouteilles, caisses : autant de fragments qui résistent mieux que les gestes
-          qui les ont produits. L’archive commence là où l’usage s’arrête.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section id="archive" class="section">
-    <div class="section-kicker">PRIMARY SPECIMEN INDEX</div>
-    <h2>Archive</h2>
-    <p class="section-lead">
-      Première série de spécimens littoraux injectés dans l’archive.
-      Chaque entrée ouvre une fiche détaillée.
-    </p>
-
-    <div class="cards">
-      <article class="card">
-        <a href="ma-0001.html">
-          <div class="card-image">
-            <img src="ma-0001.jpg" alt="MA-0001">
-            <div class="tag">validated entry</div>
-          </div>
-          <div class="card-body">
-            <div class="panel-kicker">SPECIMEN RECORD // MA-0001</div>
-            <div class="taxon">Fluctuator modularis littoralis</div>
-            <h3>Dispositif de flottabilité abandonné</h3>
-            <p class="spec-intro">Assemblage flottant composé d’un réservoir blanc, d’un flotteur jaune et d’une hampe signalétique.</p>
-            <dl class="meta">
-              <div><dt>Classe</dt><dd>Flotteria</dd></div>
-              <div><dt>Famille</dt><dd>Balistica marine</dd></div>
-              <div><dt>Site</dt><dd>Laisse de mer</dd></div>
-              <div><dt>Coordonnées</dt><dd>à compléter</dd></div>
-            </dl>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="ma-0002.html">
-          <div class="card-image">
-            <img src="ma-0002.jpg" alt="MA-0002">
-            <div class="tag">validated entry</div>
-          </div>
-          <div class="card-body">
-            <div class="panel-kicker">SPECIMEN RECORD // MA-0002</div>
-            <div class="taxon">Reservoir alba domestica</div>
-            <h3>Réservoir plastique dérivé</h3>
-            <p class="spec-intro">Volume blanc rigide, taché d’algues et de dépôts marins, relevant d’un ancien usage de stockage.</p>
-            <dl class="meta">
-              <div><dt>Classe</dt><dd>Containera</dd></div>
-              <div><dt>Famille</dt><dd>Petrodomestica</dd></div>
-              <div><dt>Site</dt><dd>Plage / sable humide</dd></div>
-              <div><dt>Coordonnées</dt><dd>à compléter</dd></div>
-            </dl>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="ma-0003.html">
-          <div class="card-image">
-            <img src="ma-0003.jpg" alt="MA-0003">
-            <div class="tag">validated entry</div>
-          </div>
-          <div class="card-body">
-            <div class="panel-kicker">SPECIMEN RECORD // MA-0003</div>
-            <div class="taxon">Filamenta pallida involuta</div>
-            <h3>Agrégat de filaments synthétiques</h3>
-            <p class="spec-intro">Masse emmêlée de fibres blanches associée à un fragment de résille sombre.</p>
-            <dl class="meta">
-              <div><dt>Classe</dt><dd>Reticularia</dd></div>
-              <div><dt>Famille</dt><dd>Filamenta marina</dd></div>
-              <div><dt>Site</dt><dd>Bord de dune</dd></div>
-              <div><dt>Coordonnées</dt><dd>à compléter</dd></div>
-            </dl>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="ma-0004.html">
-          <div class="card-image">
-            <img src="ma-0004.jpg" alt="MA-0004">
-            <div class="tag">validated entry</div>
-          </div>
-          <div class="card-body">
-            <div class="panel-kicker">SPECIMEN RECORD // MA-0004</div>
-            <div class="taxon">Hydroportata translucida duplex</div>
-            <h3>Contenants plastiques compressés</h3>
-            <p class="spec-intro">Deux bouteilles translucides et un contenant opaque issus du confort portatif à usage bref.</p>
-            <dl class="meta">
-              <div><dt>Classe</dt><dd>Hydroportata</dd></div>
-              <div><dt>Famille</dt><dd>Petropolyméraires légers</dd></div>
-              <div><dt>Site</dt><dd>Dépôt mêlé</dd></div>
-              <div><dt>Coordonnées</dt><dd>à compléter</dd></div>
-            </dl>
-          </div>
-        </a>
-      </article>
-
-      <article class="card">
-        <a href="ma-0005.html">
-          <div class="card-image">
-            <img src="ma-0005.jpg" alt="MA-0005">
-            <div class="tag">validated entry</div>
-          </div>
-          <div class="card-body">
-            <div class="panel-kicker">SPECIMEN RECORD // MA-0005</div>
-            <div class="taxon">Cistella nigra distributiva</div>
-            <h3>Structure de transport polymère</h3>
-            <p class="spec-intro">Caisse plastique ajourée observée en contexte de dépôt littoral, contenant encore un objet secondaire.</p>
-            <dl class="meta">
-              <div><dt>Classe</dt><dd>Transporta</dd></div>
-              <div><dt>Famille</dt><dd>Cratiformes distributivi</dd></div>
-              <div><dt>Site</dt><dd>Accumulation côtière</dd></div>
-              <div><dt>Coordonnées</dt><dd>à compléter</dd></div>
-            </dl>
-          </div>
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <section id="research" class="section">
-    <div class="section-kicker">RESEARCH INTERFACE</div>
-    <h2>Research</h2>
-    <p class="section-lead">
-      L’archive croise description matérielle, classification fictive
-      et lecture poétique des vestiges littoraux.
-    </p>
-
-    <div class="research-grid">
-      <article class="research-panel">
-        <div class="panel-kicker">AXIS A // STRATUM</div>
-        <p>
-          Étude des objets comme fossiles technologiques et signes d’un monde
-          ayant externalisé sa mémoire dans les polymères.
-        </p>
-      </article>
-
-      <article class="research-panel">
-        <div class="panel-kicker">AXIS B // LITTORAL</div>
-        <p>
-          Le rivage agit comme chambre de tri involontaire où se rejouent
-          balisage, capture, transport et abandon.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section id="participer" class="section">
-    <div class="section-kicker">PARTICIPATION</div>
-    <h2>Participer</h2>
-    <p class="section-lead">
-      Documenter l’artefact in situ, nommer, classer, interpréter,
-      puis injecter le spécimen dans l’archive.
-    </p>
-    <div class="footer-note">Version home v2 forte — stable, statique, publiable.</div>
-  </section>
-
-</main>
+  <footer class="statusbar">
+    <div>STATUS : <strong>ONLINE</strong></div>
+    <div>DATABASE : <strong>ACTIVE</strong></div>
+    <div>SPECIMENS : <strong>000126</strong></div>
+  </footer>
+</div>
 </body>
 </html>
