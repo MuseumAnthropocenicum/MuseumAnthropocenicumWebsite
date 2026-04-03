@@ -37,14 +37,16 @@ nav a:hover{color:#fff}
   content:""; position:absolute; inset:auto -10% -35% auto; width:420px; height:420px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,255,255,.08), transparent 62%); pointer-events:none;
 }
-.hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note,.field-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
-.hero-logo{width:70px;height:62px;margin:18px 0}
+.hero-topline,.kicker,.card-number,.spec-id,.spec-class,.field-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+.hero-logo{width:90px;height:90px;margin:18px 0}
 .hero h1{margin:0;font-size:clamp(32px,5vw,64px);line-height:.98;letter-spacing:4px;text-transform:uppercase;font-weight:500;max-width:10ch}
 .tagline{margin-top:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:13px}
 .lead{margin-top:22px;max-width:760px;color:var(--soft);line-height:1.95;font-size:18px}
 .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border:1px solid var(--line2);background:rgba(255,255,255,.02);letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border:1px solid var(--line2);background:rgba(255,255,255,.02);letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#fff;cursor:pointer}
 .btn:hover{background:rgba(255,255,255,.06)}
+.btn-submit{background:#fff;color:#000;border:1px solid #fff}
+.btn-submit:hover{background:#e9e9e9}
 .hero-scan{margin-top:28px;height:138px;border:1px solid var(--line);background:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),radial-gradient(circle at 60% 50%, rgba(255,255,255,.08), transparent 28%);background-size:42px 42px,42px 42px,100% 100%;position:relative;overflow:hidden}
 .hero-scan:after{content:"";position:absolute;left:-15%;right:-15%;top:42%;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);box-shadow:0 0 12px rgba(255,255,255,.4)}
 .side-stack{display:grid;gap:16px}
@@ -94,50 +96,24 @@ input,textarea{
   padding:14px 12px; font:inherit; resize:vertical;
 }
 textarea{min-height:130px}
+input::placeholder, textarea::placeholder{color:rgba(255,255,255,.42)}
+.dropzone{
+  border:1px dashed rgba(255,255,255,.22); background:rgba(255,255,255,.025); padding:18px 16px; min-height:88px;
+  display:flex; align-items:center; justify-content:center; text-align:center; color:var(--soft); cursor:pointer;
+}
+.file-input{display:none}
+.file-note{margin-top:8px;color:var(--faint);font-size:12px;line-height:1.6}
 .submit-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+footer{
+  margin-top:120px; padding:40px 20px; text-align:center; border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.4); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+}
+footer a{color:rgba(255,255,255,.6)}
+footer a:hover{color:#fff}
 .footer-space{height:72px}
 @media(max-width:1100px){.hero-grid,.taxonomy{grid-template-columns:1fr}.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:780px){.status-bar{grid-template-columns:repeat(2,1fr)}.archive-grid,.recit-grid,.research-grid,.taxonomy-list,.expo-grid,.participation-grid,.form-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.container{width:min(1380px, calc(100% - 24px))}.status-bar{grid-template-columns:1fr}}
-
-.btn-submit{
-  background:#fff !important;
-  color:#000 !important;
-  border:1px solid #fff !important;
-}
-.btn-submit:hover{
-  background:#e9e9e9 !important;
-}
-.dropzone{
-  border:1px dashed rgba(255,255,255,.22);
-  background:rgba(255,255,255,.025);
-  padding:18px 16px;
-  min-height:88px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:var(--soft);
-  transition:border-color .2s ease, background .2s ease;
-  cursor:pointer;
-}
-.dropzone.is-dragover{
-  border-color:#fff;
-  background:rgba(255,255,255,.06);
-}
-.dropzone strong{
-  color:#fff;
-}
-.file-input{
-  display:none;
-}
-.file-note{
-  margin-top:8px;
-  color:var(--faint);
-  font-size:12px;
-  line-height:1.6;
-}
-
 </style>
 </head>
 <body>
@@ -146,7 +122,7 @@ textarea{min-height:130px}
     <img src="logo.png" alt="Museum Anthropocenicum logo">
     <div>
       <div style="letter-spacing:3px;text-transform:uppercase;font-size:13px;">Museum Anthropocenicum</div>
-      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.4 — Participation + Formspree</div>
+      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.5 — Launch Version</div>
     </div>
   </div>
   <nav>
@@ -337,23 +313,16 @@ textarea{min-height:130px}
       Le rapport audio est rattaché à cette première mission. Il ne vient pas à côté du récit : il en est une pièce active,
       un relevé sensible, une trace de terrain, une voix d’expédition revenue avec les spécimens et leurs hypothèses.
     </div>
-
     <div class="expo-grid">
       <article class="card">
         <div class="card-number">Module 01</div>
         <h3>Première expédition archéologique</h3>
-        <p>
-          AEMA-0001 constitue une mission de terrain : un lieu où les signes les plus ordinaires de notre époque apparaissent soudain
-          comme les indices incomplets d’une civilisation disparue.
-        </p>
+        <p>AEMA-0001 constitue une mission de terrain : un lieu où les signes les plus ordinaires de notre époque apparaissent soudain comme les indices incomplets d’une civilisation disparue.</p>
       </article>
       <article class="card">
         <div class="card-number">Module 02</div>
         <h3>Audio report de l’expédition</h3>
-        <p>
-          Le player ci-dessous restitue l’audio report de l’expédition AEMA-0001.
-          Il accompagne la traversée du musée comme un document de mission, à la fois compte rendu, dérive et relevé de présence.
-        </p>
+        <p>Le player ci-dessous restitue l’audio report de l’expédition AEMA-0001. Il accompagne la traversée du musée comme un document de mission, à la fois compte rendu, dérive et relevé de présence.</p>
         <audio controls preload="none">
           <source src="Aema 001.m4a" type="audio/mp4">
         </audio>
@@ -423,14 +392,11 @@ textarea{min-height:130px}
           </div>
           <div class="field full">
             <div class="field-label">Image / fichier</div>
-            <label for="image_upload" class="dropzone" id="dropzone">
-              <div>
-                <strong>Déposer une photo ici</strong><br>
-                ou cliquer pour sélectionner un fichier
-              </div>
+            <label for="image_upload" class="dropzone">
+              <div><strong>Déposer une photo ici</strong><br>ou cliquer pour sélectionner un fichier</div>
             </label>
             <input id="image_upload" class="file-input" type="file" name="image_upload" accept="image/*,.pdf,.heic,.jpg,.jpeg,.png,.webp">
-            <div class="file-note" id="file-note">Aucun fichier sélectionné</div>
+            <div class="file-note">Aucun fichier sélectionné</div>
           </div>
           <input type="hidden" name="_subject" value="Nouveau relevé — Museum Anthropocenicum">
           <input type="hidden" name="_language" value="fr">
@@ -438,7 +404,7 @@ textarea{min-height:130px}
 
         <div class="submit-row">
           <button type="submit" class="btn btn-submit">[ Déposer le relevé ]</button>
-          <div class="form-help">Le relevé sera transmis à l’archive pour examen. Photo glissée ou cliquée dans la zone ci-dessus.</div>
+          <div class="form-help">Le relevé sera transmis à l’archive pour examen.</div>
         </div>
       </form>
     </div>
@@ -457,81 +423,38 @@ textarea{min-height:130px}
       Entre document, fiction et hypothèse critique,
       le projet regarde notre présent comme une couche future de ruines.
     </div>
-
     <div class="research-grid">
       <article class="card">
         <div class="card-number">Axis A</div>
         <h3>Absurd material abundance</h3>
-        <p>
-          Lire les objets contemporains comme symptômes d’une production excédentaire :
-          trop de matière, trop peu de durée d’usage, trop de survivance après la fonction.
-        </p>
+        <p>Lire les objets contemporains comme symptômes d’une production excédentaire : trop de matière, trop peu de durée d’usage, trop de survivance après la fonction.</p>
       </article>
       <article class="card">
         <div class="card-number">Axis B</div>
         <h3>Future archaeology</h3>
-        <p>
-          Déplacer le regard dans le temps pour faire apparaître notre monde sous sa forme la plus nue :
-          non comme actualité, mais comme dépôt, comme reste, comme énigme.
-        </p>
+        <p>Déplacer le regard dans le temps pour faire apparaître notre monde sous sa forme la plus nue : non comme actualité, mais comme dépôt, comme reste, comme énigme.</p>
       </article>
     </div>
     <div class="footer-space"></div>
   </div>
 </section>
 
+<footer>
+  <div style="opacity:.6;">Museum Anthropocenicum — Vestiges d’une humanité en cours de fossilisation</div>
+  <div style="margin-top:12px;">
+    <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
 <script>
 (function(){
   const input = document.getElementById('image_upload');
-  const dropzone = document.getElementById('dropzone');
-  const note = document.getElementById('file-note');
-  if(!input || !dropzone || !note) return;
-
-  function updateNote(files){
-    if(!files || !files.length){
-      note.textContent = 'Aucun fichier sélectionné';
-      return;
-    }
-    if(files.length === 1){
-      note.textContent = 'Fichier sélectionné : ' + files[0].name;
-    } else {
-      note.textContent = files.length + ' fichiers sélectionnés';
-    }
-  }
-
-  dropzone.addEventListener('click', function(){
-    input.click();
-  });
-
+  const note = document.querySelector('.file-note');
+  if(!input || !note) return;
   input.addEventListener('change', function(){
-    updateNote(input.files);
-  });
-
-  ['dragenter','dragover'].forEach(evt => {
-    dropzone.addEventListener(evt, function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      dropzone.classList.add('is-dragover');
-    });
-  });
-
-  ['dragleave','drop'].forEach(evt => {
-    dropzone.addEventListener(evt, function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      dropzone.classList.remove('is-dragover');
-    });
-  });
-
-  dropzone.addEventListener('drop', function(e){
-    const files = e.dataTransfer.files;
-    if(files && files.length){
-      input.files = files;
-      updateNote(files);
-    }
+    note.textContent = input.files && input.files.length ? 'Fichier sélectionné : ' + input.files[0].name : 'Aucun fichier sélectionné';
   });
 })();
 </script>
-
 </body>
 </html>
