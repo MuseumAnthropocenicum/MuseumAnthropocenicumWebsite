@@ -1,12 +1,16 @@
-Museum Anthropocenicum — home v2 forte
+Museum Anthropocenicum — Pack final
 
-Fichiers à garder dans le même dossier que index.html :
+Contenu :
+- index.html
+- ma-0001.html à ma-0015.html
+- Aema 001.m4a (audio report de l’expédition AEMA-0001)
 - logo.png
-- ma-0001.jpg
-- ma-0002.jpg
-- ma-0003.jpg
-- ma-0004.jpg
-- ma-0005.jpg
 
-Ce pack contient uniquement la homepage.
-Il remplace le fichier index.html.
+À ajouter dans le même dossier avant mise en ligne :
+- ma-0001.jpg à ma-0015.jpg
+
+Notes :
+- Le menu emploie désormais “Expédition” avec le sous-titre “AEMA-0001”.
+- L’audio report est rattaché explicitement à cette première expédition archéologique.
+- Si votre hébergeur est sensible aux noms de fichiers, gardez exactement :
+  Aema 001.m4a

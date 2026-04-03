@@ -4,485 +4,360 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Museum Anthropocenicum</title>
-
+<meta name="description" content="Archéologie spéculative des vestiges de l’Anthropocène.">
 <style>
 :root{
-  --bg:#000;
-  --text:#f5f5f5;
-  --line:rgba(255,255,255,.08);
-  --line2:rgba(255,255,255,.05);
-  --soft:rgba(255,255,255,.72);
-  --faint:rgba(255,255,255,.45);
+  --bg:#000; --text:#f5f5f5; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05);
+  --soft:rgba(255,255,255,.74); --faint:rgba(255,255,255,.45); --accent:#d7d2c7;
 }
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial, sans-serif;
+  margin:0; background:#000; color:#fff; font-family:Arial,sans-serif;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 1px),
     radial-gradient(circle at 80% 60%, rgba(255,255,255,.15) 1px, transparent 1px),
     linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 400px 400px, 600px 600px, 40px 40px, 40px 40px;
+  background-size:400px 400px,600px 600px,40px 40px,40px 40px;
 }
-
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
 header{
-  position:sticky;
-  top:0;
-  z-index:30;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  border-bottom:1px solid var(--line);
-  background:rgba(0,0,0,.8);
-  backdrop-filter:blur(8px);
+  position:sticky; top:0; z-index:30; display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; border-bottom:1px solid var(--line); background:rgba(0,0,0,.82); backdrop-filter:blur(8px);
 }
-
 header img{width:50px;height:50px;object-fit:contain}
-
-nav a{
-  margin-left:30px;
-  color:#ccc;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:14px;
-}
+nav a{margin-left:30px;color:#ccc;letter-spacing:2px;text-transform:uppercase;font-size:14px}
 nav a:hover{color:#fff}
-
-.hero{
-  text-align:center;
-  padding:110px 20px 90px;
-  min-height:calc(100vh - 92px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.container{width:min(1380px, calc(100% - 48px)); margin:0 auto}
+.hero{padding:96px 0 44px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:26px;align-items:start}
+.hero-main,.side-panel,.card,.status-box,.taxonomy-main,.taxonomy-side,.spec{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
+.hero-main{padding:36px 32px 32px;position:relative;overflow:hidden}
+.hero-main:before{
+  content:""; position:absolute; inset:auto -10% -35% auto; width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.08), transparent 62%); pointer-events:none;
 }
-
-.hero-inner{
-  width:min(980px, 100%);
+.hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+.hero-logo{width:90px;height:90px;margin:18px 0}
+.hero h1{margin:0;font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:6px;text-transform:uppercase;font-weight:500;max-width:10ch}
+.tagline{margin-top:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:13px}
+.lead{margin-top:22px;max-width:760px;color:var(--soft);line-height:1.95;font-size:18px}
+.hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border:1px solid var(--line2);background:rgba(255,255,255,.02);letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.btn:hover{background:rgba(255,255,255,.06)}
+.hero-scan{margin-top:28px;height:138px;border:1px solid var(--line);background:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),radial-gradient(circle at 60% 50%, rgba(255,255,255,.08), transparent 28%);background-size:42px 42px,42px 42px,100% 100%;position:relative;overflow:hidden}
+.hero-scan:after{content:"";position:absolute;left:-15%;right:-15%;top:42%;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);box-shadow:0 0 12px rgba(255,255,255,.4)}
+.side-stack{display:grid;gap:16px}
+.side-panel{padding:20px}
+.side-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+.side-value{margin-top:12px;font-size:clamp(22px,4vw,34px);letter-spacing:2px}
+.side-copy,.section-desc,.card p,.spec-copy{color:var(--soft);line-height:1.85}
+.side-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.side-mini{border:1px solid var(--line);background:rgba(255,255,255,.02);padding:14px}
+.side-mini .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+.side-mini .v{margin-top:8px;font-size:14px}
+audio{width:100%;margin-top:16px;filter:grayscale(1)}
+.status-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 0 26px}
+.status-box{padding:14px 16px}
+.status-box .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+.status-box .v{margin-top:8px;letter-spacing:2px;text-transform:uppercase}
+section.content{padding:34px 0 0}
+.section-head h2{margin:8px 0 0;font-size:clamp(30px,4vw,56px);letter-spacing:4px;text-transform:uppercase;font-weight:500}
+.recit-grid,.research-grid,.expo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.card{padding:22px}
+.card h3{margin:12px 0 0;font-size:22px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+.taxonomy{margin-top:24px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.taxonomy-main,.taxonomy-side{padding:22px}
+.taxonomy-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.tax-item{border:1px solid var(--line);background:rgba(255,255,255,.015);padding:14px}
+.tax-item .fam{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--faint)}
+.tax-item .desc{margin-top:8px;color:var(--soft);line-height:1.7;font-size:14px}
+.archive-controls{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.filter-chip{border:1px solid var(--line);padding:10px 14px;background:rgba(255,255,255,.02);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
+.spec{display:flex;flex-direction:column;min-height:100%;transition:transform .18s ease,border-color .18s ease}
+.spec:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.18)}
+.spec-top{padding:18px 18px 0}
+.spec-title{margin-top:12px;font-size:22px;line-height:1.15;font-style:italic}
+.spec-meta{margin-top:12px;color:var(--accent);font-size:11px;letter-spacing:1.7px;text-transform:uppercase;line-height:1.7}
+.spec-bottom{margin-top:auto;padding:18px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end}
+.spec-arrow{width:38px;height:38px;border:1px solid var(--line);display:grid;place-items:center}
+.footer-space{height:72px}
+.quote-block{
+  border-left:1px solid var(--line); padding-left:18px; margin-top:18px; color:var(--soft); line-height:1.9;
 }
-
-.hero img{
-  width:160px;
-  margin:0 auto 30px;
-}
-
-.hero h1{
-  font-size:clamp(36px,5.4vw,68px);
-  letter-spacing:6px;
-  text-transform:uppercase;
-  margin:0;
-  font-weight:500;
-}
-
-.hero p{
-  margin-top:26px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:#ccc;
-}
-
-.subnote{
-  font-size:12px;
-  opacity:.6;
-}
-
-.buttons{
-  margin-top:50px;
-}
-
-.buttons a{
-  display:inline-block;
-  margin:10px;
-  padding:15px 30px;
-  border:1px solid rgba(255,255,255,.3);
-  color:#fff;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.buttons a:hover{
-  background:rgba(255,255,255,.1);
-}
-
-.scanbox{
-  margin:60px auto 0;
-  width:min(900px, 100%);
-  height:140px;
-  border:1px solid var(--line);
-  background:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size:40px 40px, 40px 40px;
-}
-
-footer{
-  border-top:1px solid var(--line);
-  padding:15px 40px;
-  font-size:12px;
-  letter-spacing:3px;
-  color:#aaa;
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-}
-
-main section.content{
-  padding:90px 40px 20px;
-  border-top:1px solid var(--line2);
-}
-
-.kicker{
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--faint);
-  margin-bottom:14px;
-}
-
-h2{
-  margin:0;
-  font-size:clamp(32px,4vw,58px);
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-weight:500;
-}
-
-.lead{
-  max-width:920px;
-  margin-top:20px;
-  color:var(--soft);
-  line-height:1.8;
-  font-size:18px;
-}
-
-.recit-grid,
-.research-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:30px;
-}
-
-.card{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.02);
-  padding:24px;
-}
-
-.card-number{
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--faint);
-  margin-bottom:10px;
-}
-
-.card h3{
-  margin:0;
-  font-size:24px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-weight:500;
-}
-
-.card p{
-  margin-top:16px;
-  color:var(--soft);
-  line-height:1.8;
-}
-
-.archive-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:30px;
-}
-
-.spec{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.02);
-  overflow:hidden;
-}
-
-.spec img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  filter:grayscale(100%);
-}
-
-.spec-body{
-  padding:18px;
-}
-
-.spec-id{
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--faint);
-}
-
-.spec-title{
-  margin-top:10px;
-  font-size:24px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.spec-text{
-  margin-top:12px;
-  color:var(--soft);
-  line-height:1.8;
-}
-
-.latin{
-  margin-top:8px;
-  font-size:13px;
-  letter-spacing:1px;
-  color:#d5d1c8;
-  font-style:italic;
-  text-transform:none;
-}
-
-
-.spec-sub{
-  margin-top:10px;
-  font-size:12px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:#d7d2c7;
-}
-
-.cta{
-  margin-top:30px;
-  display:inline-block;
-  padding:14px 24px;
-  border:1px solid rgba(255,255,255,.3);
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.cta:hover{background:rgba(255,255,255,.08)}
-
-@media(max-width:900px){
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:16px;
-  }
-  nav a{
-    margin-left:0;
-    margin-right:20px;
-    display:inline-block;
-  }
-  .recit-grid,
-  .research-grid,
-  .archive-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:640px){
-  header,
-  main section.content,
-  footer{
-    padding-left:20px;
-    padding-right:20px;
-  }
-  .hero{
-    padding:90px 20px 70px;
-    min-height:auto;
-  }
-  .hero h1{
-    letter-spacing:3px;
-  }
-  .hero p{
-    letter-spacing:2px;
-  }
-  .buttons a{
-    display:block;
-  }
-  .scanbox{
-    height:100px;
-  }
-}
+@media(max-width:1100px){.hero-grid,.taxonomy{grid-template-columns:1fr}.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){.status-bar{grid-template-columns:repeat(2,1fr)}.archive-grid,.recit-grid,.research-grid,.taxonomy-list,.expo-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.container{width:min(1380px, calc(100% - 24px))}.status-bar{grid-template-columns:1fr}}
 </style>
-
 </head>
-
 <body>
-
-<header id="top">
+<header>
   <div style="display:flex;align-items:center;gap:15px;">
     <img src="logo.png" alt="Museum Anthropocenicum logo">
-    <div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div>
+    <div>
+      <div style="letter-spacing:3px;text-transform:uppercase;font-size:13px;">Museum Anthropocenicum</div>
+      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.2 — Speculative Archaeology Edition</div>
+    </div>
   </div>
-
   <nav>
     <a href="#recit">Récit</a>
+    <a href="#taxonomy">Taxonomie</a>
     <a href="#archive">Archive</a>
-    <a href="#research">Recherche</a>
+    <a href="#exposition">Expédition</a>
+    <a href="#research">Research</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-inner">
-    <img src="logo.png" alt="">
-    <h1>Museum Anthropocenicum</h1>
-
-    <p>Archive of Anthropocene Artifacts</p>
-    <p class="subnote">Open archaeological database of human civilization remains</p>
-
-    <div class="buttons">
-      <a href="#recit">[ Récit ]</a>
-      <a href="#archive">[ Archive ]</a>
-      <a href="#research">[ Recherche ]</a>
+  <div class="container hero-grid">
+    <div class="hero-main">
+      <div class="hero-topline">Speculative archaeology · future return · anthropocene remains</div>
+      <img class="hero-logo" src="logo.png" alt="">
+      <h1>Museum Anthropocenicum</h1>
+      <div class="tagline">Archive of what remains after us</div>
+      <div class="lead">
+        Le Museum Anthropocenicum imagine un temps où les humains auraient disparu depuis longtemps.<br><br>
+        Dix mille ans plus tard, d’autres regards reviendraient sur les traces laissées à la surface du monde :
+        contenants, semelles, fragments techniques, liens, dispositifs de capture, organismes échoués.<br><br>
+        Ce ne sont pas des chefs-d’œuvre. Ce sont les restes ordinaires de notre civilisation —
+        les formes les plus banales, les plus absurdes, les plus persistantes.<br><br>
+        Le musée pose une question simple : qu’est-ce que nos productions racontent de nous
+        lorsqu’il ne reste plus personne pour les expliquer ?
+      </div>
+      <div class="quote-block">
+        Ici, chaque spécimen est lu comme si l’usage avait été oublié,
+        comme si le présent était déjà devenu une couche archéologique.
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="#archive">[ Parcourir les vestiges ]</a>
+        <a class="btn" href="#recit">[ Lire le récit ]</a>
+        <a class="btn" href="#exposition">[ Écouter l’expédition ]</a>
+      </div>
+      <div class="hero-scan"></div>
     </div>
 
-    <div class="scanbox"></div>
+    <div class="side-stack">
+      <div class="side-panel">
+        <div class="side-label">Observation Field</div>
+        <div class="side-value">000015</div>
+        <div class="side-copy">
+          Quinze spécimens composent cette première traversée du rivage comme archive du futur :
+          quatorze formes fabriquées, une forme vivante, toutes saisies comme résidus d’un monde humain devenu énigme.
+        </div>
+        <div class="side-grid">
+          <div class="side-mini"><div class="k">Hypothèse</div><div class="v">Retour après 10 000 ans</div></div>
+          <div class="side-mini"><div class="k">Terrain</div><div class="v">Littoral Atlantique</div></div>
+          <div class="side-mini"><div class="k">Technofacta</div><div class="v">000014</div></div>
+          <div class="side-mini"><div class="k">Biotica</div><div class="v">000001</div></div>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="side-label">Expédition / AEMA-0001</div>
+        <div class="side-copy">
+          Le rapport audio est directement lié à l’expédition AEMA-0001.
+          Il agit comme journal de terrain, trace sonore de la mission et prolongement sensible de l’enquête archéologique.
+        </div>
+        <audio controls preload="none">
+          <source src="Aema 001.m4a" type="audio/mp4">
+        </audio>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div>STATUS : ONLINE</div>
-  <div>DATABASE : ACTIVE</div>
-  <div>SPECIMENS : 000005</div>
-</footer>
+<div class="container status-bar">
+  <div class="status-box"><div class="k">Total records</div><div class="v">000015</div></div>
+  <div class="status-box"><div class="k">Technofacta</div><div class="v">000014</div></div>
+  <div class="status-box"><div class="k">Biotica</div><div class="v">000001</div></div>
+  <div class="status-box"><div class="k">Temporal frame</div><div class="v">+10 000 years</div></div>
+</div>
 
-<main>
-
-  <section id="recit" class="content">
-    <div class="kicker">Narrative archive</div>
-    <h2>Récit</h2>
-    <div class="lead">
-      Après plusieurs millénaires d’absence, les missions de terrain revinrent sur la planète anciennement désignée Terre.
-      À première vue, la biosphère semblait respirer à nouveau. À seconde vue, un feuillet discret mais omniprésent surgissait partout :
-      polymères, contenants, filets, flotteurs, emballages, récipients. L’archive commence là où l’usage s’arrête.
+<section id="recit" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Narrative frame</div><h2>Récit</h2></div></div>
+    <div class="section-desc">
+      Le récit du musée part d’un renversement : notre présent est observé comme un passé lointain.<br><br>
+      Dans cette perspective, les objets les plus insignifiants deviennent des énigmes.
+      Pourquoi tant de matière pour des usages si brefs ?
+      Pourquoi tant de complexité pour si peu de nécessité ?
+      Pourquoi tant de formes destinées à devenir presque immédiatement des restes ?<br><br>
+      L’archéologie spéculative ne cherche pas à retrouver la vérité exacte de notre monde.
+      Elle cherche à révéler, par le décalage, l’absurdité tranquille de ce que nous produisons
+      et la masse de choses que nous laissons derrière nous.
     </div>
 
     <div class="recit-grid">
       <article class="card">
         <div class="card-number">01</div>
-        <h3>Arrivée</h3>
+        <h3>Un futur sans nous</h3>
         <p>
-          Le retour ne révéla pas une ruine unique mais une multitude d’objets mineurs,
-          disséminés sur les rivages, plus persistants que les gestes humains qui les avaient produits.
+          Le musée imagine des observateurs revenus trop tard :
+          assez tard pour que les fonctions se soient perdues,
+          mais pas assez pour que les matières aient disparu.
         </p>
       </article>
-
       <article class="card">
         <div class="card-number">02</div>
-        <h3>Mystique du rebut</h3>
+        <h3>L’ordinaire comme ruine</h3>
         <p>
-          Bouées, bidons, bouteilles, filets et caisses composent désormais un pan entier de la mémoire terrestre :
-          une archéologie accidentelle, involontaire, mais extraordinairement durable.
+          Ce que nous appelons aujourd’hui banalité devient ici document majeur.
+          L’emballage, la semelle, le filet ou la bouteille racontent peut-être plus de nous
+          que les monuments que nous pensions durables.
         </p>
       </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="archive" class="content">
-    <div class="kicker">Primary specimen index</div>
-    <h2>Archive</h2>
-    <div class="lead">
-      Première série de spécimens littoraux injectés dans l’archive.
-      Chaque entrée renvoie à une fiche détaillée.
+<section id="taxonomy" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Reading apparatus</div><h2>Taxonomie</h2></div></div>
+    <div class="section-desc">
+      La taxonomie du Museum Anthropocenicum n’est pas un système clos.
+      C’est une façon de lire les vestiges en admettant qu’une part de leur sens nous échappe déjà.<br><br>
+      Les classes ne prétendent pas résoudre l’objet.
+      Elles lui donnent un cadre d’apparition :
+      ce que l’on croit reconnaître,
+      ce qui résiste,
+      ce qui demeure sans mode d’emploi.
+    </div>
+
+    <div class="taxonomy">
+      <div class="taxonomy-main">
+        <div class="kicker">Primary families</div>
+        <div class="taxonomy-list">
+          <div class="tax-item"><div class="fam">Stabilia incerta</div><div class="desc">Objets d’alignement, de seuil, de repérage et d’équilibre instable.</div></div>
+          <div class="tax-item"><div class="fam">Containeria / Contenitoria</div><div class="desc">Formes de stockage, d’emballage, de transport et de préservation.</div></div>
+          <div class="tax-item"><div class="fam">Fibrosa / Captoria</div><div class="desc">Maillages, filets, liens et dispositifs de capture ou de contrainte.</div></div>
+          <div class="tax-item"><div class="fam">Vestimentaria</div><div class="desc">Interfaces corporelles de confort, de mobilité et de protection.</div></div>
+          <div class="tax-item"><div class="fam">Structura / Transportia</div><div class="desc">Pièces d’infrastructure, modules de soutien et objets de circulation.</div></div>
+          <div class="tax-item"><div class="fam">Gelata</div><div class="desc">Manifestations biologiques échouées, témoins du vivant laissé lui aussi dans l’archive.</div></div>
+        </div>
+      </div>
+      <div class="taxonomy-side">
+        <div class="kicker">Curatorial principle</div>
+        <div class="side-copy">
+          Classer ici ne signifie pas dominer le réel.
+          Cela signifie admettre que nos propres productions finiront par nous survivre,
+          puis par devenir opaques, disponibles à d’autres récits que les nôtres.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="archive" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Primary specimen index</div><h2>Archive</h2></div></div>
+    <div class="section-desc">
+      Ces quinze spécimens ne sont pas présentés comme des preuves,
+      mais comme des seuils d’interprétation.<br><br>
+      Ils donnent à voir une civilisation dont la puissance matérielle
+      apparaît soudain dans son versant le plus nu :
+      la répétition, le jetable, la surproduction,
+      la survivance disproportionnée des choses les plus modestes.<br><br>
+      À travers eux, le musée pose une autre question :
+      que deviendra notre monde lorsque ses objets seront plus durables que sa mémoire ?
+    </div>
+
+    <div class="archive-controls">
+      <div class="filter-chip">15 spécimens</div>
+      <div class="filter-chip">Archéologie spéculative</div>
+      <div class="filter-chip">14 Technofacta</div>
+      <div class="filter-chip">1 Biotica</div>
     </div>
 
     <div class="archive-grid">
-      <a class="spec" href="ma-0001.html">
-        <img src="ma-0001.jpg" alt="MA-0001">
-        <div class="spec-body">
-          <div class="spec-id">MA-0001</div>
-          <div class="spec-title">Fluctuator signalis littoralis</div>
-          <div class="spec-sub">Classification : Flotteria — Coordonnées : 48°12'34"N / 4°32'10"W</div>
-          <div class="spec-text">Assemblage flottant échoué, combinant réservoir, flotteur et hampe signalétique.</div>
-        </div>
-      </a>
-
-      <a class="spec" href="ma-0002.html">
-        <img src="ma-0002.jpg" alt="MA-0002">
-        <div class="spec-body">
-          <div class="spec-id">MA-0002</div>
-          <div class="spec-title">Reservorium plasticum album</div>
-          <div class="spec-sub">Classification : Contenitoria — Coordonnées : 48°12'51"N / 4°31'42"W</div>
-          <div class="spec-text">Volume plastique rigide dérivé, marqué par l’eau, le sel et les dépôts marins.</div>
-        </div>
-      </a>
-
-      <a class="spec" href="ma-0003.html">
-        <img src="ma-0003.jpg" alt="MA-0003">
-        <div class="spec-body">
-          <div class="spec-id">MA-0003</div>
-          <div class="spec-title">Reticulum pallidum involutum</div>
-          <div class="spec-sub">Classification : Reticularia — Coordonnées : 48°13'02"N / 4°31'05"W</div>
-          <div class="spec-text">Masse filamentaire synthétique devenue presque organique après dérive et dépôt.</div>
-        </div>
-      </a>
-
-      <a class="spec" href="ma-0004.html">
-        <img src="ma-0004.jpg" alt="MA-0004">
-        <div class="spec-body">
-          <div class="spec-id">MA-0004</div>
-          <div class="spec-title">Hydroporta translucida duplex</div>
-          <div class="spec-sub">Classification : Hydroportata — Coordonnées : 48°13'18"N / 4°30'44"W</div>
-          <div class="spec-text">Contenants d’usage bref persistants, fossiles immédiats de la logistique du jetable.</div>
-        </div>
-      </a>
-
-      <a class="spec" href="ma-0005.html">
-        <img src="ma-0005.jpg" alt="MA-0005">
-        <div class="spec-body">
-          <div class="spec-id">MA-0005</div>
-          <div class="spec-title">Cistella distributiva perforata</div>
-          <div class="spec-sub">Classification : Transporta — Coordonnées : 48°13'33"N / 4°30'12"W</div>
-          <div class="spec-text">Structure distributive ajourée, vestige d’un système de transport et de circulation.</div>
-        </div>
-      </a>
+      <a class="spec" href="ma-0001.html"><div class="spec-top"><div class="spec-id">MA-0001</div><div class="spec-title">Axis littoralis fluctuans</div><div class="spec-meta">Technofacta • Stabilia incerta</div><div class="spec-copy">Objet liminaire d’alignement, entre balise, dérive et opérateur de seuil.</div></div><div class="spec-bottom"><div class="spec-class">Stabilia incerta</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0002.html"><div class="spec-top"><div class="spec-id">MA-0002</div><div class="spec-title">Capsula alba residualis</div><div class="spec-meta">Technofacta • Containeria</div><div class="spec-copy">Capsule de conservation devenue archive d’un désir d’isolement.</div></div><div class="spec-bottom"><div class="spec-class">Containeria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0003.html"><div class="spec-top"><div class="spec-id">MA-0003</div><div class="spec-title">Reticulum errans complexum</div><div class="spec-meta">Technofacta • Fibrosa</div><div class="spec-copy">Filet dérivant absorbé par le milieu qu’il devait filtrer.</div></div><div class="spec-bottom"><div class="spec-class">Fibrosa</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0004.html"><div class="spec-top"><div class="spec-id">MA-0004</div><div class="spec-title">Vasa dispersa ritualis</div><div class="spec-meta">Technofacta • Containeria</div><div class="spec-copy">Assemblage résiduel de contenants, vestige de gestes distribués.</div></div><div class="spec-bottom"><div class="spec-class">Containeria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0005.html"><div class="spec-top"><div class="spec-id">MA-0005</div><div class="spec-title">Capsula distributiva relicta</div><div class="spec-meta">Technofacta • Transportia</div><div class="spec-copy">Infrastructure de transport devenue scène symbolique du manque.</div></div><div class="spec-bottom"><div class="spec-class">Transportia</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0006.html"><div class="spec-top"><div class="spec-id">MA-0006</div><div class="spec-title">Tubulus captans residualis</div><div class="spec-meta">Technofacta • Captoria</div><div class="spec-copy">Structure tubulaire de capture ou de filtration littorale.</div></div><div class="spec-bottom"><div class="spec-class">Captoria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0007.html"><div class="spec-top"><div class="spec-id">MA-0007</div><div class="spec-title">Ampulla lucida residualis</div><div class="spec-meta">Technofacta • Liquida</div><div class="spec-copy">Micro-réservoir de soin, de dosage ou de proximité sensible.</div></div><div class="spec-bottom"><div class="spec-class">Liquida</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0008.html"><div class="spec-top"><div class="spec-id">MA-0008</div><div class="spec-title">Solea caerulea derelicta</div><div class="spec-meta">Technofacta • Vestimentaria</div><div class="spec-copy">Semelle échouée, archéologie du confort et de la mobilité légère.</div></div><div class="spec-bottom"><div class="spec-class">Vestimentaria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0009.html"><div class="spec-top"><div class="spec-id">MA-0009</div><div class="spec-title">Reticulum syntheticum fragmenta</div><div class="spec-meta">Technofacta • Captoria</div><div class="spec-copy">Fragment de maillage, reste d’une membrane de tri.</div></div><div class="spec-bottom"><div class="spec-class">Captoria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0010.html"><div class="spec-top"><div class="spec-id">MA-0010</div><div class="spec-title">Capsula lactea urbana</div><div class="spec-meta">Technofacta • Contenitoria</div><div class="spec-copy">Contenant alimentaire dont la matière survit au produit.</div></div><div class="spec-bottom"><div class="spec-class">Contenitoria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0011.html"><div class="spec-top"><div class="spec-id">MA-0011</div><div class="spec-title">Vitris vinaria derelicta</div><div class="spec-meta">Technofacta • Contenitoria</div><div class="spec-copy">Bouteille de partage devenue capsule de temps échouée.</div></div><div class="spec-bottom"><div class="spec-class">Contenitoria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0012.html"><div class="spec-top"><div class="spec-id">MA-0012</div><div class="spec-title">Spira septata technica</div><div class="spec-meta">Technofacta • Structura</div><div class="spec-copy">Composant modulaire, fossile discret d’une infrastructure absente.</div></div><div class="spec-bottom"><div class="spec-class">Structura</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0013.html"><div class="spec-top"><div class="spec-id">MA-0013</div><div class="spec-title">Calceus apertus modularis</div><div class="spec-meta">Technofacta • Vestimentaria</div><div class="spec-copy">Chaussure ouverte, fragment de corps absent.</div></div><div class="spec-bottom"><div class="spec-class">Vestimentaria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0014.html"><div class="spec-top"><div class="spec-id">MA-0014</div><div class="spec-title">Ligamen plasticum fragmenta</div><div class="spec-meta">Technofacta • Captoria</div><div class="spec-copy">Lien plastique fragmenté, vestige d’une relation technique.</div></div><div class="spec-bottom"><div class="spec-class">Captoria</div><div class="spec-arrow">↗</div></div></a>
+      <a class="spec" href="ma-0015.html"><div class="spec-top"><div class="spec-id">MA-0015</div><div class="spec-title">Medusa littoralis relicta</div><div class="spec-meta">Biotica • Gelata</div><div class="spec-copy">Biotica échouée, témoin fragile d’un monde en dérive.</div></div><div class="spec-bottom"><div class="spec-class">Gelata</div><div class="spec-arrow">↗</div></div></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="research" class="content" style="padding-bottom:90px;">
-    <div class="kicker">Research interface</div>
-    <h2>Recherche</h2>
-    <div class="lead">
-      Le musée croise lecture matérielle, taxonomie spéculative et interprétation poétique des vestiges côtiers.
-      Chaque spécimen agit comme un micro-fossile d’une civilisation du transport, de l’emballage et de la conservation provisoire.
+<section id="exposition" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Exhibition frame</div><h2>Expédition</h2></div></div>
+    <div class="section-desc">
+      L’expédition AEMA-0001 correspond à la première mission archéologique du Museum Anthropocenicum.<br><br>
+      Les spécimens n’y sont plus seulement regardés :
+      ils sont traversés par la voix, par l’écoute, par un temps plus lent.<br><br>
+      Le rapport audio est rattaché à cette première mission. Il ne vient pas à côté du récit : il en est une pièce active,
+      un relevé sensible, une trace de terrain, une voix d’expédition revenue avec les spécimens et leurs hypothèses.
+    </div>
+
+    <div class="expo-grid">
+      <article class="card">
+        <div class="card-number">Module 01</div>
+        <h3>Première expédition archéologique</h3>
+        <p>
+          AEMA0001 constitue une mission de terrain :
+          un lieu où les signes les plus ordinaires de notre époque apparaissent soudain
+          comme les indices incomplets d’une civilisation disparue.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-number">Module 02</div>
+        <h3>Audio report de l’expédition</h3>
+        <p>
+          Le player ci-dessous restitue l’audio report de l’expédition AEMA-0001.
+          Il accompagne la traversée du musée comme un document de mission, à la fois compte rendu, dérive et relevé de présence.
+        </p>
+        <audio controls preload="none">
+          <source src="Aema 001.m4a" type="audio/mp4">
+        </audio>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="research" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Research interface</div><h2>Research</h2></div></div>
+    <div class="section-desc">
+      Le Museum Anthropocenicum travaille à partir d’une question simple et vertigineuse :
+      que laisserons-nous derrière nous ?<br><br>
+      Non pas ce que nous voulions transmettre,
+      mais ce qui restera malgré nous :
+      les formes trop nombreuses, trop solides, trop banales pour disparaître avec nous.<br><br>
+      Entre document, fiction et hypothèse critique,
+      le projet regarde notre présent comme une couche future de ruines.
     </div>
 
     <div class="research-grid">
       <article class="card">
-        <div class="card-number">AXIS A</div>
-        <h3>Stratum Anthropocenicum</h3>
+        <div class="card-number">Axis A</div>
+        <h3>Absurd material abundance</h3>
         <p>
-          Observer les artefacts non comme déchets, mais comme éléments de couche :
-          signes d’une présence humaine devenue géologique.
+          Lire les objets contemporains comme symptômes d’une production excédentaire :
+          trop de matière, trop peu de durée d’usage, trop de survivance après la fonction.
         </p>
       </article>
-
       <article class="card">
-        <div class="card-number">AXIS B</div>
-        <h3>Littoral</h3>
+        <div class="card-number">Axis B</div>
+        <h3>Future archaeology</h3>
         <p>
-          Le rivage agit comme un appareil de tri involontaire où se rejouent capture,
-          transport, dérive, abandon et réapparition.
+          Déplacer le regard dans le temps pour faire apparaître notre monde sous sa forme la plus nue :
+          non comme actualité, mais comme dépôt, comme reste, comme énigme.
         </p>
       </article>
     </div>
-
-    <a class="cta" href="#top">[ Retour en haut ]</a>
-  </section>
-
-</main>
-
+    <div class="footer-space"></div>
+  </div>
+</section>
 </body>
 </html>

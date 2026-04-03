@@ -1,248 +1,77 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MA-0005 — Museum Anthropocenicum</title>
-<style>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA-0005 — Museum Anthropocenicum</title><style>
 :root{
-  --bg:#000;
-  --text:#f5f5f5;
-  --line:rgba(255,255,255,.08);
-  --line2:rgba(255,255,255,.05);
-  --soft:rgba(255,255,255,.74);
-  --faint:rgba(255,255,255,.45);
-  --accent:#d7d2c7;
+  --bg:#000; --text:#f5f5f5; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05);
+  --soft:rgba(255,255,255,.74); --faint:rgba(255,255,255,.45); --accent:#d7d2c7;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial, sans-serif;
+  margin:0; background:#000; color:#fff; font-family:Arial,sans-serif;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 1px),
     radial-gradient(circle at 80% 60%, rgba(255,255,255,.15) 1px, transparent 1px),
     linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size:400px 400px, 600px 600px, 40px 40px, 40px 40px;
+  background-size:400px 400px,600px 600px,40px 40px,40px 40px;
 }
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
 header{
-  position:sticky; top:0; z-index:30;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 40px;
-  border-bottom:1px solid var(--line);
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(8px);
+  position:sticky; top:0; z-index:30; display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; border-bottom:1px solid var(--line); background:rgba(0,0,0,.82); backdrop-filter:blur(8px);
 }
 header img{width:50px;height:50px;object-fit:contain}
-nav a{
-  margin-left:30px;
-  color:#ccc;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:14px;
-}
+nav a{margin-left:30px;color:#ccc;letter-spacing:2px;text-transform:uppercase;font-size:14px}
 nav a:hover{color:#fff}
 .page{padding:56px 40px 90px;}
-.back{
-  display:inline-block;
-  margin-bottom:24px;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--soft);
-}
-.grid{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:26px;
-  align-items:start;
-}
-.visual,.panel,.block,.full{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.02);
-}
-.visual img{
-  width:100%;
-  height:auto;
-  min-height:560px;
-  object-fit:cover;
-  filter:grayscale(100%);
-}
-.panel{padding:24px}
-.kicker{
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--faint);
-}
-h1{
-  margin:14px 0 0;
-  font-size:clamp(30px,4vw,54px);
-  font-style:italic;
-  font-weight:500;
-  letter-spacing:1px;
-  text-transform:none;
-}
-.subtitle{
-  margin-top:12px;
-  font-size:12px;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  color:var(--accent);
-  line-height:1.7;
-}
-.lead{
-  margin-top:20px;
-  color:var(--soft);
-  line-height:1.9;
-  font-size:17px;
-}
-.meta{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:24px;
-  padding-top:22px;
-  border-top:1px solid var(--line2);
-}
-.meta-item dt{
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--faint);
-}
-.meta-item dd{
-  margin:8px 0 0;
-  color:#fff;
-  line-height:1.7;
-}
-.blocks{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:24px;
-}
-.block{padding:22px}
-.block h2,.full h2{
-  margin:0;
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-weight:500;
-}
-.block p,.full p{
-  margin:16px 0 0;
-  color:var(--soft);
-  line-height:1.85;
-  font-size:16px;
-}
-.full{margin-top:20px;padding:24px;}
-.status{
-  margin-top:22px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:28px;
-  padding-top:16px;
-  border-top:1px solid var(--line2);
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--soft);
-}
-.status strong{color:#fff;font-weight:500}
-ul.spec-list{
-  margin:14px 0 0 18px;
-  padding:0;
-  color:var(--soft);
-  line-height:1.8;
-}
-ul.spec-list li{margin:5px 0}
-@media(max-width:980px){
-  .grid{grid-template-columns:1fr}
-  .blocks{grid-template-columns:1fr}
-  .visual img{min-height:unset}
-}
-@media(max-width:640px){
-  header,.page{padding-left:20px;padding-right:20px}
-  nav a{margin-left:14px;font-size:12px}
-  .meta{grid-template-columns:1fr}
-}
-</style>
-</head>
+.back{display:inline-block;margin-bottom:24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
+.visual,.panel,.block,.full{border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.visual img{width:100%;min-height:560px;object-fit:cover;filter:grayscale(100%)}
+.panel,.block,.full{padding:24px}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+h1{margin:14px 0 0;font-size:clamp(28px,3.5vw,42px);font-weight:500;letter-spacing:4px;text-transform:uppercase}
+.latin-subtitle{margin-top:10px;font-size:20px;letter-spacing:.5px;color:#fff;font-style:italic}
+.subtitle{margin-top:14px;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);line-height:1.7}
+.lead{margin-top:20px;color:var(--soft);line-height:1.9;font-size:17px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line2)}
+.meta-item dt{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+.meta-item dd{margin:8px 0 0;color:#fff;line-height:1.7}
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.block h2,.full h2{margin:0;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.block p,.full p{margin:16px 0 0;color:var(--soft);line-height:1.85;font-size:16px}
+.full{margin-top:20px}
+.status{margin-top:22px;display:flex;flex-wrap:wrap;gap:28px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
+.status strong{color:#fff}
+ul.spec-list{margin:14px 0 0 18px;padding:0;color:var(--soft);line-height:1.8}
+audio{width:100%;margin-top:16px;filter:grayscale(1)}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.blocks{grid-template-columns:1fr}.visual img{min-height:unset}}
+@media(max-width:640px){header,.page{padding-left:20px;padding-right:20px}nav a{margin-left:14px;font-size:12px}.meta{grid-template-columns:1fr}}
+</style></head>
 <body>
-<header>
-  <div style="display:flex;align-items:center;gap:15px;">
-    <img src="logo.png" alt="Museum Anthropocenicum logo">
-    <div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div>
-  </div>
-  <nav>
-    <a href="index.html#archive">Archive</a>
-    <a href="index.html#recit">Récit</a>
-    <a href="index.html#research">Recherche</a>
-  </nav>
-</header>
-
+<header><div style="display:flex;align-items:center;gap:15px;"><img src="logo.png" alt="Museum Anthropocenicum logo"><div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div></div>
+<nav><a href="index.html#archive">Archive</a><a href="index.html#recit">Récit</a><a href="index.html#taxonomy">Taxonomie</a><a href="index.html#exposition">AEMA0001</a></nav></header>
 <main class="page">
-  <a class="back" href="index.html#archive">← Retour à l’archive</a>
-
-  <section class="grid">
-    <div class="visual">
-      <img src="ma-0005.jpg" alt="MA-0005">
-    </div>
-
-    <aside class="panel">
-      <div class="kicker">Archive system — artefact record // MA-0005</div>
-      <h1>Capsula distributiva relicta</h1>
-      <div class="subtitle">
-        Classification : Technofacta, Transportia<br>
-        Location : Zone littorale anthropisée / marge végétale — Coordonnées : 43.4891° N / 1.5613° W<br>
-        Timeframe : Anthropocène terminal (estimation) — Archive node : AEMA-001 / Peripheral Scatter Unit
-      </div>
-
-      <p class="lead">Structure découverte en zone de transition végétale, à la lisière d’un espace manifestement fréquenté par des flux humains intermittents. La présence d’un récipient interne brisé suggère un dépôt volontaire plutôt qu’un abandon accidentel. L’objet semble avoir été positionné avec une certaine attention, légèrement surélevé par des débris organiques.</p>
-
-      <dl class="meta">
-        <div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
-        <div class="meta-item"><dt>Classe</dt><dd>Transportia</dd></div>
-        <div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
-        <div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
-        <div class="meta-item"><dt>Fonction supposée</dt><dd>Dispositif de transport modulaire destiné à contenir et déplacer des unités de subsistance ou d’échange. Son architecture ajourée indique une volonté de visibilité permanente du contenu, excluant toute notion de protection réelle. Hypothèse secondaire : usage cérémoniel de présentation ou d’offrande temporaire.</dd></div>
-        <div class="meta-item"><dt>Stratigraphie</dt><dd>Couche superficielle exposée. Faible enfouissement partiel par accumulation éolienne. Absence de compression sédimentaire significative.</dd></div>
-      </dl>
-
-      <div class="status">
-        <div>Status : <strong>Catalogué</strong></div>
-        <div>Index : <strong>MA-0005</strong></div>
-        <div>Node : <strong>AEMA-001 / Peripheral Scatter Unit</strong></div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="blocks">
-    <article class="block">
-      <h2>Interprétation archéologique</h2>
-      <p>L’artefact semble correspondre à une unité de captation et de redistribution des ressources, probablement intégrée à un système économique fondé sur l’accumulation transitoire. Toutefois, la présence d’un unique fragment au centre du dispositif introduit une anomalie. Ce positionnement central, isolé, suggère moins un oubli qu’un geste intentionnel. Il est envisageable que ces structures aient servi de :</p>
-      <ul class='spec-list'><li>cadres rituels où l’objet résiduel devenait symbole</li><li>chambres de dépôt sacrificiel</li><li>mises en scène du manque plutôt que de la richesse</li></ul>
-      <p>Certains chercheurs avancent que la Capsula pouvait fonctionner comme un dispositif de régénération ou de circulation future. Une lecture plus spéculative propose que plusieurs structures similaires seraient alignées selon des axes non aléatoires, possiblement corrélés à la trajectoire solaire, renforçant l’hypothèse d’un usage symbolique lié aux cycles naturels aujourd’hui mal compris.</p>
-    </article>
-
-    <article class="block">
-      <h2>Matériaux / état</h2>
-      <p>Polymères rigides moulés (structure principale), résidus plastiques (fragment interne), dépôts organiques secondaires — végétaux, sable, micro-débris.</p>
-      <p>Faible enfouissement partiel, présence de dépôts organiques et intégration superficielle au milieu végétal. La structure reste lisible mais déplacée vers une fonction d’exposition involontaire.</p>
-    </article>
-  </section>
-
-  <section class="full">
-    <h2>Note curatoriale</h2>
-    <p>Au sein du corpus, <em>Capsula distributiva relicta</em> est l’un des artefacts les plus subtilement narratifs. Sa forme ajourée évoque la logistique, mais son contenu presque absent et son dépôt soigné déplacent immédiatement la lecture vers le symbolique.</p>
-    <p>Le contenant survit mieux que ce qu’il contenait, et cette dissymétrie devient son sens. Dans l’économie muséale du projet, l’infrastructure du transport bascule ici vers la relique d’un désir de circulation que le paysage a déjà interrompu.</p>
-  </section>
-</main>
-</body>
-</html>
+<a class="back" href="index.html#archive">← Retour à l’archive</a>
+<section class="grid">
+<div class="visual"><img src="ma-0005.jpg" alt="MA-0005"></div>
+<aside class="panel">
+<div class="kicker">Archive system — artefact record // MA-0005</div><h1>MA-0005</h1><div class="latin-subtitle">Capsula distributiva relicta</div>
+<div class="subtitle">Classification : Technofacta, Transportia<br>Location : Zone littorale anthropisée / marge végétale — Coordonnées : 43.4891° N / 1.5613° W<br>Timeframe : Anthropocène terminal — Archive node : AEMA-001 / Peripheral Scatter Unit</div>
+<p class="lead">Structure ajourée découverte en zone de transition végétale, avec récipient interne brisé suggérant un dépôt volontaire.</p>
+<dl class="meta">
+<div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
+<div class="meta-item"><dt>Classe</dt><dd>Transportia</dd></div>
+<div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
+<div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
+<div class="meta-item"><dt>Fonction supposée</dt><dd>Dispositif de transport modulaire destiné à contenir et déplacer des unités de subsistance ou d’échange.</dd></div>
+<div class="meta-item"><dt>Stratigraphie</dt><dd>Couche superficielle exposée ; faible enfouissement partiel.</dd></div>
+</dl>
+<div class="status"><div>Status : <strong>Catalogué</strong></div><div>Index : <strong>MA-0005</strong></div><div>Node : <strong>AEMA-001 / Peripheral Scatter Unit</strong></div></div>
+</aside></section>
+<section class="blocks">
+<article class="block"><h2>Interprétation archéologique</h2><p>L’objet semble correspondre à une unité de redistribution des ressources. Il pourrait avoir servi de :</p><ul class="spec-list"><li>cadre rituel où l’objet résiduel devient symbole</li><li>chambre de dépôt sacrificiel</li><li>mise en scène du manque</li></ul><p>Le vide central devient le véritable contenu de la structure.</p></article>
+<article class="block"><h2>Matériaux / état</h2><p>Polymères rigides moulés, résidus plastiques, dépôts organiques.</p><p>Enfouissement partiel et intégration végétale superficielle.</p></article>
+</section>
+<section class="full"><h2>Note curatoriale</h2><p>La logistique bascule ici vers le symbolique.</p><p>Le contenant survit mieux que ce qu’il contenait, et cette dissymétrie devient son sens.</p></section>
+</main></body></html>
