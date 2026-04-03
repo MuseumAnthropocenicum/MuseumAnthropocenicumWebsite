@@ -38,8 +38,8 @@ nav a:hover{color:#fff}
   background:radial-gradient(circle, rgba(255,255,255,.08), transparent 62%); pointer-events:none;
 }
 .hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note,.field-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
-.hero-logo{width:70px;height:62px;margin:18px 0}
-.hero h1{margin:0;font-size:clamp(32px,5vw,64px);line-height:.98;letter-spacing:4px;text-transform:uppercase;font-weight:500;max-width:10ch}
+.hero-logo{width:90px;height:90px;margin:18px 0}
+.hero h1{margin:0;font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:6px;text-transform:uppercase;font-weight:500;max-width:10ch}
 .tagline{margin-top:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:13px}
 .lead{margin-top:22px;max-width:760px;color:var(--soft);line-height:1.95;font-size:18px}
 .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
@@ -99,6 +99,45 @@ textarea{min-height:130px}
 @media(max-width:1100px){.hero-grid,.taxonomy{grid-template-columns:1fr}.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:780px){.status-bar{grid-template-columns:repeat(2,1fr)}.archive-grid,.recit-grid,.research-grid,.taxonomy-list,.expo-grid,.participation-grid,.form-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.container{width:min(1380px, calc(100% - 24px))}.status-bar{grid-template-columns:1fr}}
+
+.btn-submit{
+  background:#fff !important;
+  color:#000 !important;
+  border:1px solid #fff !important;
+}
+.btn-submit:hover{
+  background:#e9e9e9 !important;
+}
+.dropzone{
+  border:1px dashed rgba(255,255,255,.22);
+  background:rgba(255,255,255,.025);
+  padding:18px 16px;
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--soft);
+  transition:border-color .2s ease, background .2s ease;
+  cursor:pointer;
+}
+.dropzone.is-dragover{
+  border-color:#fff;
+  background:rgba(255,255,255,.06);
+}
+.dropzone strong{
+  color:#fff;
+}
+.file-input{
+  display:none;
+}
+.file-note{
+  margin-top:8px;
+  color:var(--faint);
+  font-size:12px;
+  line-height:1.6;
+}
+
 </style>
 </head>
 <body>
@@ -107,7 +146,7 @@ textarea{min-height:130px}
     <img src="logo.png" alt="Museum Anthropocenicum logo">
     <div>
       <div style="letter-spacing:3px;text-transform:uppercase;font-size:13px;">Museum Anthropocenicum</div>
-      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.3 — Participation Layer</div>
+      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.4 — Participation + Formspree</div>
     </div>
   </div>
   <nav>
@@ -354,46 +393,54 @@ textarea{min-height:130px}
         </div>
       </article>
 
-      <article class="form-panel">
+      <form action="https://formspree.io/f/xpqoypzb" method="POST" enctype="multipart/form-data" class="form-panel">
         <div class="card-number">Transmission de terrain</div>
         <h3>Soumettre un relevé</h3>
         <div class="form-help">
-          Cette structure peut être reliée à un formulaire réel plus tard.
-          Pour l’instant, elle met en scène la logique de dépôt et de transmission.
+          Chaque transmission sera examinée comme hypothèse de vestige.
         </div>
 
         <div class="form-grid">
           <div class="field">
             <div class="field-label">Nom du spécimen proposé</div>
-            <input type="text" placeholder="Ex. Fragmentum ignotum">
+            <input type="text" name="specimen_name" placeholder="Ex. Fragmentum ignotum" required>
           </div>
           <div class="field">
             <div class="field-label">Lieu d’observation</div>
-            <input type="text" placeholder="Littoral, rive, friche, dépôt...">
+            <input type="text" name="observation_place" placeholder="Littoral, rive, friche, dépôt..." required>
           </div>
           <div class="field">
             <div class="field-label">Coordonnées</div>
-            <input type="text" placeholder="Latitude / Longitude">
+            <input type="text" name="coordinates" placeholder="Latitude / Longitude">
           </div>
           <div class="field">
             <div class="field-label">Contact</div>
-            <input type="text" placeholder="Email ou identifiant">
+            <input type="email" name="email" placeholder="votre@email.com" required>
           </div>
           <div class="field full">
             <div class="field-label">Note de terrain</div>
-            <textarea placeholder="Décrire le contexte, la forme, l’état, la présence du spécimen..."></textarea>
+            <textarea name="field_note" placeholder="Décrire le contexte, la forme, l’état, la présence du spécimen..." required></textarea>
           </div>
           <div class="field full">
             <div class="field-label">Image / fichier</div>
-            <input type="text" placeholder="Lien ou nom de fichier">
+            <label for="image_upload" class="dropzone" id="dropzone">
+              <div>
+                <strong>Déposer une photo ici</strong><br>
+                ou cliquer pour sélectionner un fichier
+              </div>
+            </label>
+            <input id="image_upload" class="file-input" type="file" name="image_upload" accept="image/*,.pdf,.heic,.jpg,.jpeg,.png,.webp">
+            <div class="file-note" id="file-note">Aucun fichier sélectionné</div>
           </div>
+          <input type="hidden" name="_subject" value="Nouveau relevé — Museum Anthropocenicum">
+          <input type="hidden" name="_language" value="fr">
         </div>
 
         <div class="submit-row">
-          <a class="btn" href="#">[ Déposer le relevé ]</a>
-          <div class="form-help">Chaque transmission sera examinée comme hypothèse de vestige.</div>
+          <button type="submit" class="btn btn-submit">[ Déposer le relevé ]</button>
+          <div class="form-help">Le relevé sera transmis à l’archive pour examen. Photo glissée ou cliquée dans la zone ci-dessus.</div>
         </div>
-      </article>
+      </form>
     </div>
   </div>
 </section>
@@ -432,5 +479,59 @@ textarea{min-height:130px}
     <div class="footer-space"></div>
   </div>
 </section>
+
+<script>
+(function(){
+  const input = document.getElementById('image_upload');
+  const dropzone = document.getElementById('dropzone');
+  const note = document.getElementById('file-note');
+  if(!input || !dropzone || !note) return;
+
+  function updateNote(files){
+    if(!files || !files.length){
+      note.textContent = 'Aucun fichier sélectionné';
+      return;
+    }
+    if(files.length === 1){
+      note.textContent = 'Fichier sélectionné : ' + files[0].name;
+    } else {
+      note.textContent = files.length + ' fichiers sélectionnés';
+    }
+  }
+
+  dropzone.addEventListener('click', function(){
+    input.click();
+  });
+
+  input.addEventListener('change', function(){
+    updateNote(input.files);
+  });
+
+  ['dragenter','dragover'].forEach(evt => {
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.add('is-dragover');
+    });
+  });
+
+  ['dragleave','drop'].forEach(evt => {
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.remove('is-dragover');
+    });
+  });
+
+  dropzone.addEventListener('drop', function(e){
+    const files = e.dataTransfer.files;
+    if(files && files.length){
+      input.files = files;
+      updateNote(files);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
