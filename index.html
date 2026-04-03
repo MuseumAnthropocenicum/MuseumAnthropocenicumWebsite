@@ -31,15 +31,15 @@ nav a:hover{color:#fff}
 .container{width:min(1380px, calc(100% - 48px)); margin:0 auto}
 .hero{padding:96px 0 44px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:26px;align-items:start}
-.hero-main,.side-panel,.card,.status-box,.taxonomy-main,.taxonomy-side,.spec{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
+.hero-main,.side-panel,.card,.status-box,.taxonomy-main,.taxonomy-side,.spec,.participation-panel,.form-panel{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015))}
 .hero-main{padding:36px 32px 32px;position:relative;overflow:hidden}
 .hero-main:before{
   content:""; position:absolute; inset:auto -10% -35% auto; width:420px; height:420px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,255,255,.08), transparent 62%); pointer-events:none;
 }
-.hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
-.hero-logo{width:90px;height:80px;margin:18px 0}
-.hero h1{margin:0;font-size:clamp(36px,5vw,70px);line-height:.98;letter-spacing:6px;text-transform:uppercase;font-weight:500;max-width:10ch}
+.hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note,.field-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
+.hero-logo{width:90px;height:90px;margin:18px 0}
+.hero h1{margin:0;font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:6px;text-transform:uppercase;font-weight:500;max-width:10ch}
 .tagline{margin-top:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:13px}
 .lead{margin-top:22px;max-width:760px;color:var(--soft);line-height:1.95;font-size:18px}
 .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
@@ -51,7 +51,7 @@ nav a:hover{color:#fff}
 .side-panel{padding:20px}
 .side-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
 .side-value{margin-top:12px;font-size:clamp(22px,4vw,34px);letter-spacing:2px}
-.side-copy,.section-desc,.card p,.spec-copy{color:var(--soft);line-height:1.85}
+.side-copy,.section-desc,.card p,.spec-copy,.participation-copy,.form-help{color:var(--soft);line-height:1.85}
 .side-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 .side-mini{border:1px solid var(--line);background:rgba(255,255,255,.02);padding:14px}
 .side-mini .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
@@ -63,9 +63,9 @@ audio{width:100%;margin-top:16px;filter:grayscale(1)}
 .status-box .v{margin-top:8px;letter-spacing:2px;text-transform:uppercase}
 section.content{padding:34px 0 0}
 .section-head h2{margin:8px 0 0;font-size:clamp(30px,4vw,56px);letter-spacing:4px;text-transform:uppercase;font-weight:500}
-.recit-grid,.research-grid,.expo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.recit-grid,.research-grid,.expo-grid,.participation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
 .card{padding:22px}
-.card h3{margin:12px 0 0;font-size:22px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+.card h3,.participation-panel h3,.form-panel h3{margin:12px 0 0;font-size:22px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
 .taxonomy{margin-top:24px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
 .taxonomy-main,.taxonomy-side{padding:22px}
 .taxonomy-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
@@ -82,12 +82,22 @@ section.content{padding:34px 0 0}
 .spec-meta{margin-top:12px;color:var(--accent);font-size:11px;letter-spacing:1.7px;text-transform:uppercase;line-height:1.7}
 .spec-bottom{margin-top:auto;padding:18px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end}
 .spec-arrow{width:38px;height:38px;border:1px solid var(--line);display:grid;place-items:center}
-.footer-space{height:72px}
-.quote-block{
-  border-left:1px solid var(--line); padding-left:18px; margin-top:18px; color:var(--soft); line-height:1.9;
+.quote-block{border-left:1px solid var(--line); padding-left:18px; margin-top:18px; color:var(--soft); line-height:1.9}
+.participation-panel,.form-panel{padding:24px}
+.protocol-list{margin:18px 0 0 18px;padding:0;color:var(--soft);line-height:1.9}
+.protocol-list li{margin-bottom:10px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1 / -1}
+input,textarea{
+  width:100%; background:rgba(255,255,255,.03); color:#fff; border:1px solid var(--line);
+  padding:14px 12px; font:inherit; resize:vertical;
 }
+textarea{min-height:130px}
+.submit-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+.footer-space{height:72px}
 @media(max-width:1100px){.hero-grid,.taxonomy{grid-template-columns:1fr}.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:780px){.status-bar{grid-template-columns:repeat(2,1fr)}.archive-grid,.recit-grid,.research-grid,.taxonomy-list,.expo-grid{grid-template-columns:1fr}}
+@media(max-width:780px){.status-bar{grid-template-columns:repeat(2,1fr)}.archive-grid,.recit-grid,.research-grid,.taxonomy-list,.expo-grid,.participation-grid,.form-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.container{width:min(1380px, calc(100% - 24px))}.status-bar{grid-template-columns:1fr}}
 </style>
 </head>
@@ -97,7 +107,7 @@ section.content{padding:34px 0 0}
     <img src="logo.png" alt="Museum Anthropocenicum logo">
     <div>
       <div style="letter-spacing:3px;text-transform:uppercase;font-size:13px;">Museum Anthropocenicum</div>
-      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.2 — Speculative Archaeology Edition</div>
+      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.4 — Participation + Formspree</div>
     </div>
   </div>
   <nav>
@@ -105,6 +115,7 @@ section.content{padding:34px 0 0}
     <a href="#taxonomy">Taxonomie</a>
     <a href="#archive">Archive</a>
     <a href="#exposition">Expédition</a>
+    <a href="#participation">Participation</a>
     <a href="#research">Research</a>
   </nav>
 </header>
@@ -131,7 +142,7 @@ section.content{padding:34px 0 0}
       </div>
       <div class="hero-actions">
         <a class="btn" href="#archive">[ Parcourir les vestiges ]</a>
-        <a class="btn" href="#recit">[ Lire le récit ]</a>
+        <a class="btn" href="#participation">[ Contribuer à l’archive ]</a>
         <a class="btn" href="#exposition">[ Écouter l’expédition ]</a>
       </div>
       <div class="hero-scan"></div>
@@ -187,25 +198,16 @@ section.content{padding:34px 0 0}
       Elle cherche à révéler, par le décalage, l’absurdité tranquille de ce que nous produisons
       et la masse de choses que nous laissons derrière nous.
     </div>
-
     <div class="recit-grid">
       <article class="card">
         <div class="card-number">01</div>
         <h3>Un futur sans nous</h3>
-        <p>
-          Le musée imagine des observateurs revenus trop tard :
-          assez tard pour que les fonctions se soient perdues,
-          mais pas assez pour que les matières aient disparu.
-        </p>
+        <p>Le musée imagine des observateurs revenus trop tard : assez tard pour que les fonctions se soient perdues, mais pas assez pour que les matières aient disparu.</p>
       </article>
       <article class="card">
         <div class="card-number">02</div>
         <h3>L’ordinaire comme ruine</h3>
-        <p>
-          Ce que nous appelons aujourd’hui banalité devient ici document majeur.
-          L’emballage, la semelle, le filet ou la bouteille racontent peut-être plus de nous
-          que les monuments que nous pensions durables.
-        </p>
+        <p>Ce que nous appelons aujourd’hui banalité devient ici document majeur. L’emballage, la semelle, le filet ou la bouteille racontent peut-être plus de nous que les monuments que nous pensions durables.</p>
       </article>
     </div>
   </div>
@@ -223,7 +225,6 @@ section.content{padding:34px 0 0}
       ce qui résiste,
       ce qui demeure sans mode d’emploi.
     </div>
-
     <div class="taxonomy">
       <div class="taxonomy-main">
         <div class="kicker">Primary families</div>
@@ -261,14 +262,12 @@ section.content{padding:34px 0 0}
       À travers eux, le musée pose une autre question :
       que deviendra notre monde lorsque ses objets seront plus durables que sa mémoire ?
     </div>
-
     <div class="archive-controls">
       <div class="filter-chip">15 spécimens</div>
       <div class="filter-chip">Archéologie spéculative</div>
       <div class="filter-chip">14 Technofacta</div>
       <div class="filter-chip">1 Biotica</div>
     </div>
-
     <div class="archive-grid">
       <a class="spec" href="ma-0001.html"><div class="spec-top"><div class="spec-id">MA-0001</div><div class="spec-title">Axis littoralis fluctuans</div><div class="spec-meta">Technofacta • Stabilia incerta</div><div class="spec-copy">Objet liminaire d’alignement, entre balise, dérive et opérateur de seuil.</div></div><div class="spec-bottom"><div class="spec-class">Stabilia incerta</div><div class="spec-arrow">↗</div></div></a>
       <a class="spec" href="ma-0002.html"><div class="spec-top"><div class="spec-id">MA-0002</div><div class="spec-title">Capsula alba residualis</div><div class="spec-meta">Technofacta • Containeria</div><div class="spec-copy">Capsule de conservation devenue archive d’un désir d’isolement.</div></div><div class="spec-bottom"><div class="spec-class">Containeria</div><div class="spec-arrow">↗</div></div></a>
@@ -291,7 +290,7 @@ section.content{padding:34px 0 0}
 
 <section id="exposition" class="content">
   <div class="container">
-    <div class="section-head"><div><div class="kicker">Exhibition frame</div><h2>Expédition</h2></div></div>
+    <div class="section-head"><div><div class="kicker">Première expédition archéologique</div><h2>Expédition</h2><div style="margin-top:10px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:12px;">AEMA-0001</div></div></div>
     <div class="section-desc">
       L’expédition AEMA-0001 correspond à la première mission archéologique du Museum Anthropocenicum.<br><br>
       Les spécimens n’y sont plus seulement regardés :
@@ -305,8 +304,7 @@ section.content{padding:34px 0 0}
         <div class="card-number">Module 01</div>
         <h3>Première expédition archéologique</h3>
         <p>
-          AEMA0001 constitue une mission de terrain :
-          un lieu où les signes les plus ordinaires de notre époque apparaissent soudain
+          AEMA-0001 constitue une mission de terrain : un lieu où les signes les plus ordinaires de notre époque apparaissent soudain
           comme les indices incomplets d’une civilisation disparue.
         </p>
       </article>
@@ -321,6 +319,82 @@ section.content{padding:34px 0 0}
           <source src="Aema 001.m4a" type="audio/mp4">
         </audio>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="participation" class="content">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Archive ouverte</div><h2>Participation</h2></div></div>
+    <div class="section-desc">
+      L’archive n’est pas close.<br><br>
+      D’autres spécimens persistent ailleurs, hors champ, hors relevé, hors inventaire.<br><br>
+      Chaque contribution étend la cartographie fragmentaire de ce que notre monde laisse derrière lui.
+      Contribuer ici ne signifie pas simplement envoyer une image :
+      cela signifie déposer une hypothèse de vestige dans le champ du musée.
+    </div>
+
+    <div class="participation-grid">
+      <article class="participation-panel">
+        <div class="card-number">Protocole de dépôt</div>
+        <h3>Contribuer à l’archive</h3>
+        <div class="participation-copy">
+          Si vous rencontrez un objet abandonné, un fragment technique, un contenant déserté,
+          un reste de capture, une interface corporelle ou un organisme échoué,
+          vous pouvez en transmettre le relevé au Museum Anthropocenicum.
+        </div>
+        <ul class="protocol-list">
+          <li>Observer un spécimen ou un vestige dans son contexte.</li>
+          <li>Documenter sa présence par image, son, coordonnées ou note de terrain.</li>
+          <li>Transmettre le relevé pour examen, interprétation et possible catalogage.</li>
+        </ul>
+        <div class="participation-copy">
+          Chaque dépôt n’est pas une certitude, mais une proposition :
+          une forme soumise au regard, au doute, à la lecture future.
+        </div>
+      </article>
+
+      <form action="https://formspree.io/f/xpqoypzb" method="POST" class="form-panel">
+        <div class="card-number">Transmission de terrain</div>
+        <h3>Soumettre un relevé</h3>
+        <div class="form-help">
+          Chaque transmission sera examinée comme hypothèse de vestige.
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <div class="field-label">Nom du spécimen proposé</div>
+            <input type="text" name="specimen_name" placeholder="Ex. Fragmentum ignotum" required>
+          </div>
+          <div class="field">
+            <div class="field-label">Lieu d’observation</div>
+            <input type="text" name="observation_place" placeholder="Littoral, rive, friche, dépôt..." required>
+          </div>
+          <div class="field">
+            <div class="field-label">Coordonnées</div>
+            <input type="text" name="coordinates" placeholder="Latitude / Longitude">
+          </div>
+          <div class="field">
+            <div class="field-label">Contact</div>
+            <input type="email" name="email" placeholder="votre@email.com" required>
+          </div>
+          <div class="field full">
+            <div class="field-label">Note de terrain</div>
+            <textarea name="field_note" placeholder="Décrire le contexte, la forme, l’état, la présence du spécimen..." required></textarea>
+          </div>
+          <div class="field full">
+            <div class="field-label">Image / fichier</div>
+            <input type="url" name="media_link" placeholder="https://...">
+          </div>
+          <input type="hidden" name="_subject" value="Nouveau relevé — Museum Anthropocenicum">
+          <input type="hidden" name="_language" value="fr">
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn">[ Déposer le relevé ]</button>
+          <div class="form-help">Le relevé sera transmis à l’archive pour examen.</div>
+        </div>
+      </form>
     </div>
   </div>
 </section>
