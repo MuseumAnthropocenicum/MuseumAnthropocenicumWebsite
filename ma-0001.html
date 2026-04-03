@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MA-0001 — Museum Anthropocenicum</title><style>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA-0001 — Museum Anthropocenicum</title>
+<style>
 :root{
   --bg:#000; --text:#f5f5f5; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05);
   --soft:rgba(255,255,255,.74); --faint:rgba(255,255,255,.45); --accent:#d7d2c7;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0; background:#000; color:#fff; font-family:Arial,sans-serif;
+  margin:0;background:#000;color:#fff;font-family:Arial,sans-serif;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 1px),
     radial-gradient(circle at 80% 60%, rgba(255,255,255,.15) 1px, transparent 1px),
@@ -15,15 +20,16 @@ body{
     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
   background-size:400px 400px,600px 600px,40px 40px,40px 40px;
 }
-a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 header{
-  position:sticky; top:0; z-index:30; display:flex; justify-content:space-between; align-items:center;
-  padding:20px 40px; border-bottom:1px solid var(--line); background:rgba(0,0,0,.82); backdrop-filter:blur(8px);
+  position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;
+  padding:20px 40px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.82);backdrop-filter:blur(8px);
 }
 header img{width:50px;height:50px;object-fit:contain}
 nav a{margin-left:30px;color:#ccc;letter-spacing:2px;text-transform:uppercase;font-size:14px}
 nav a:hover{color:#fff}
-.page{padding:56px 40px 90px;}
+.page{padding:56px 40px 90px}
 .back{display:inline-block;margin-bottom:24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
 .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
 .visual,.panel,.block,.full{border:1px solid var(--line);background:rgba(255,255,255,.02)}
@@ -44,34 +50,83 @@ h1{margin:14px 0 0;font-size:clamp(28px,3.5vw,42px);font-weight:500;letter-spaci
 .status{margin-top:22px;display:flex;flex-wrap:wrap;gap:28px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
 .status strong{color:#fff}
 ul.spec-list{margin:14px 0 0 18px;padding:0;color:var(--soft);line-height:1.8}
-audio{width:100%;margin-top:16px;filter:grayscale(1)}
 @media(max-width:980px){.grid{grid-template-columns:1fr}.blocks{grid-template-columns:1fr}.visual img{min-height:unset}}
 @media(max-width:640px){header,.page{padding-left:20px;padding-right:20px}nav a{margin-left:14px;font-size:12px}.meta{grid-template-columns:1fr}}
-</style></head>
+</style>
+</head>
 <body>
-<header><div style="display:flex;align-items:center;gap:15px;"><img src="logo.png" alt="Museum Anthropocenicum logo"><div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div></div>
-<nav><a href="index.html#archive">Archive</a><a href="index.html#recit">Récit</a><a href="index.html#taxonomy">Taxonomie</a><a href="index.html#exposition">AEMA0001</a></nav></header>
+<header>
+  <div style="display:flex;align-items:center;gap:15px;">
+    <img src="logo.png" alt="Museum Anthropocenicum logo">
+    <div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div>
+  </div>
+  <nav>
+    <a href="index.html#archive">Archive</a>
+    <a href="index.html#recit">Récit</a>
+    <a href="index.html#taxonomy">Taxonomie</a>
+    <a href="index.html#exposition">Expédition</a>
+  </nav>
+</header>
+
 <main class="page">
-<a class="back" href="index.html#archive">← Retour à l’archive</a>
-<section class="grid">
-<div class="visual"><img src="ma-0001.jpg" alt="MA-0001"></div>
-<aside class="panel">
-<div class="kicker">Archive system — artefact record // MA-0001</div><h1>MA-0001</h1><div class="latin-subtitle">Axis littoralis fluctuans</div>
-<div class="subtitle">Classification : Technofacta, Stabilia incerta<br>Location : Littoral Atlantique — zone de dépôt mobile — Coordonnées : 43.4892° N / 1.5613° W<br>Timeframe : Anthropocène tardif — Archive node : LITUS-01</div>
-<p class="lead">Artefact linéaire observé en surface sur le rivage, dans un état d’abandon organisé. Sa disposition vers l’horizon suggère un geste d’alignement ou de repérage en milieu instable.</p>
-<dl class="meta">
-<div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
-<div class="meta-item"><dt>Classe</dt><dd>Stabilia incerta</dd></div>
-<div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
-<div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
-<div class="meta-item"><dt>Fonction supposée</dt><dd>Dispositif passif de stabilisation directionnelle ou de signalisation de passage.</dd></div>
-<div class="meta-item"><dt>Stratigraphie</dt><dd>Niveau superficiel — sable, organique, micro-débris.</dd></div>
-</dl>
-<div class="status"><div>Status : <strong>Catalogué</strong></div><div>Index : <strong>MA-0001</strong></div><div>Node : <strong>LITUS-01</strong></div></div>
-</aside></section>
-<section class="blocks">
-<article class="block"><h2>Interprétation archéologique</h2><p>Le système semble fonctionner par équilibre plus que par contrainte. Il pourrait avoir servi à :</p><ul class="spec-list"><li>fixer une direction</li><li>contenir une incertitude</li><li>matérialiser une relation invisible</li></ul><p>L’objet ne servait peut-être pas à orienter l’espace, mais à valider un alignement temporaire entre environnement et observateur.</p></article>
-<article class="block"><h2>Matériaux / état</h2><p>Polymères synthétiques, métal, contenant rigide, résidus salins.</p><p>Usure de surface liée aux flux littoraux.</p></article>
-</section>
-<section class="full"><h2>Note curatoriale</h2><p>Objet-charnière du corpus, entre balise, dérive et opérateur d’alignement.</p><p>Sa force tient à son ambiguïté : moins un outil qu’une hypothèse matérialisée.</p></section>
-</main></body></html>
+  <a class="back" href="index.html#archive">← Retour à l’archive</a>
+
+  <section class="grid">
+    <div class="visual">
+      <img src="ma-0001.jpg" alt="MA-0001">
+    </div>
+
+    <aside class="panel">
+      <div class="kicker">Archive system — artefact record // MA-0001</div>
+      <h1>MA-0001</h1>
+      <div class="latin-subtitle">Axis littoralis fluctuans</div>
+      <div class="subtitle">
+        Classification : Technofacta, Stabilia incerta<br>
+        Location : Littoral Atlantique — zone de dépôt mobile — Coordonnées : 43.4892° N / 1.5613° W<br>
+        Timeframe : Anthropocène tardif — Archive node : LITUS-01
+      </div>
+
+      <p class="lead">Artefact observé en zone littorale, exposé en surface, dans un état apparent d’abandon organisé. Sa disposition linéaire et son orientation vers l’horizon suggèrent une mise en place volontaire, possiblement liée à une logique d’alignement ou de repérage dans un environnement instable. L’absence de fixation au sol indique une relation directe avec les flux — marée, vent, déplacement humain.</p>
+
+      <dl class="meta">
+        <div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
+        <div class="meta-item"><dt>Classe</dt><dd>Stabilia incerta</dd></div>
+        <div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
+        <div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
+        <div class="meta-item"><dt>Fonction supposée</dt><dd>Dispositif passif de stabilisation directionnelle. Pourrait avoir servi à maintenir un axe dans un espace mouvant, accompagner un déplacement, signaler une présence ou prolonger un geste humain au-delà de sa durée.</dd></div>
+        <div class="meta-item"><dt>Stratigraphie</dt><dd>Niveau superficiel — couche active en formation (sable, organique, micro-débris).</dd></div>
+      </dl>
+
+      <div class="status">
+        <div>Status : <strong>Catalogué</strong></div>
+        <div>Index : <strong>MA-0001</strong></div>
+        <div>Node : <strong>LITUS-01</strong></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="blocks">
+    <article class="block">
+      <h2>Interprétation archéologique</h2>
+      <p>Le système semble fonctionner par équilibre plutôt que par contrainte. L’artefact présente les caractéristiques d’un objet liminaire, situé entre outil technique et structure symbolique. La combinaison d’éléments hétérogènes suggère une tentative de :</p>
+      <ul class="spec-list">
+        <li>fixer une direction</li><li>contenir une incertitude</li><li>matérialiser une relation invisible</li>
+      </ul>
+      <p>Hypothèse avancée : l’objet ne servait pas à orienter l’espace, mais à valider un alignement temporaire entre environnement et observateur. Dans certaines conditions lumineuses, l’ensemble produit une ligne d’ombre nette, pouvant agir comme repère ou seuil perceptif.</p>
+    </article>
+
+    <article class="block">
+      <h2>Matériaux / état</h2>
+      <p>Polymères synthétiques, métal, contenant rigide, résidus salins.</p>
+      <p>Usure de surface liée aux flux littoraux et à l’exposition prolongée. Malgré l’altération, l’ensemble conserve une forte lisibilité structurelle.</p>
+    </article>
+  </section>
+
+  <section class="full">
+    <h2>Note curatoriale</h2>
+    <p>Parmi les premiers artefacts du corpus, Axis littoralis fluctuans tient une place charnière. Il ne relève ni du simple rebut ni d’un instrument parfaitement assignable ; il se situe plutôt entre balise, auxiliaire de dérive et opérateur d’alignement.</p>
+    <p>Sa force muséale tient à son ambiguïté : conçu pour agir dans un milieu instable, il survit comme relique de la volonté humaine d’ordonner les flux. Ici, la technique ne contrôle plus l’environnement ; elle en révèle la résistance.</p>
+  </section>
+</main>
+</body>
+</html>

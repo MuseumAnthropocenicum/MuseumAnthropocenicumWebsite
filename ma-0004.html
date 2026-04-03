@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MA-0004 — Museum Anthropocenicum</title><style>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA-0004 — Museum Anthropocenicum</title>
+<style>
 :root{
   --bg:#000; --text:#f5f5f5; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05);
   --soft:rgba(255,255,255,.74); --faint:rgba(255,255,255,.45); --accent:#d7d2c7;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0; background:#000; color:#fff; font-family:Arial,sans-serif;
+  margin:0;background:#000;color:#fff;font-family:Arial,sans-serif;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 1px),
     radial-gradient(circle at 80% 60%, rgba(255,255,255,.15) 1px, transparent 1px),
@@ -15,15 +20,16 @@ body{
     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
   background-size:400px 400px,600px 600px,40px 40px,40px 40px;
 }
-a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 header{
-  position:sticky; top:0; z-index:30; display:flex; justify-content:space-between; align-items:center;
-  padding:20px 40px; border-bottom:1px solid var(--line); background:rgba(0,0,0,.82); backdrop-filter:blur(8px);
+  position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;
+  padding:20px 40px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.82);backdrop-filter:blur(8px);
 }
 header img{width:50px;height:50px;object-fit:contain}
 nav a{margin-left:30px;color:#ccc;letter-spacing:2px;text-transform:uppercase;font-size:14px}
 nav a:hover{color:#fff}
-.page{padding:56px 40px 90px;}
+.page{padding:56px 40px 90px}
 .back{display:inline-block;margin-bottom:24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
 .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start}
 .visual,.panel,.block,.full{border:1px solid var(--line);background:rgba(255,255,255,.02)}
@@ -44,34 +50,83 @@ h1{margin:14px 0 0;font-size:clamp(28px,3.5vw,42px);font-weight:500;letter-spaci
 .status{margin-top:22px;display:flex;flex-wrap:wrap;gap:28px;padding-top:16px;border-top:1px solid var(--line2);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
 .status strong{color:#fff}
 ul.spec-list{margin:14px 0 0 18px;padding:0;color:var(--soft);line-height:1.8}
-audio{width:100%;margin-top:16px;filter:grayscale(1)}
 @media(max-width:980px){.grid{grid-template-columns:1fr}.blocks{grid-template-columns:1fr}.visual img{min-height:unset}}
 @media(max-width:640px){header,.page{padding-left:20px;padding-right:20px}nav a{margin-left:14px;font-size:12px}.meta{grid-template-columns:1fr}}
-</style></head>
+</style>
+</head>
 <body>
-<header><div style="display:flex;align-items:center;gap:15px;"><img src="logo.png" alt="Museum Anthropocenicum logo"><div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div></div>
-<nav><a href="index.html#archive">Archive</a><a href="index.html#recit">Récit</a><a href="index.html#taxonomy">Taxonomie</a><a href="index.html#exposition">AEMA0001</a></nav></header>
+<header>
+  <div style="display:flex;align-items:center;gap:15px;">
+    <img src="logo.png" alt="Museum Anthropocenicum logo">
+    <div style="letter-spacing:2px;text-transform:uppercase;">Museum Anthropocenicum</div>
+  </div>
+  <nav>
+    <a href="index.html#archive">Archive</a>
+    <a href="index.html#recit">Récit</a>
+    <a href="index.html#taxonomy">Taxonomie</a>
+    <a href="index.html#exposition">Expédition</a>
+  </nav>
+</header>
+
 <main class="page">
-<a class="back" href="index.html#archive">← Retour à l’archive</a>
-<section class="grid">
-<div class="visual"><img src="ma-0004.jpg" alt="MA-0004"></div>
-<aside class="panel">
-<div class="kicker">Archive system — artefact record // MA-0004</div><h1>MA-0004</h1><div class="latin-subtitle">Vasa dispersa ritualis</div>
-<div class="subtitle">Classification : Technofacta, Containeria<br>Location : Zone littorale végétalisée — Coordonnées : 43.XX N / 1.XX W<br>Timeframe : Anthropocène tardif — Archive node : LITUS-03</div>
-<p class="lead">Ensemble de contenants polymériques dispersés, probablement issus d’une même logique de production et d’abandon.</p>
-<dl class="meta">
-<div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
-<div class="meta-item"><dt>Classe</dt><dd>Containeria</dd></div>
-<div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
-<div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
-<div class="meta-item"><dt>Fonction supposée</dt><dd>Contenants destinés au transport et à l’ingestion de liquides.</dd></div>
-<div class="meta-item"><dt>Stratigraphie</dt><dd>Couche superficielle — interface terre/mer.</dd></div>
-</dl>
-<div class="status"><div>Status : <strong>Catalogué</strong></div><div>Index : <strong>MA-0004</strong></div><div>Node : <strong>LITUS-03</strong></div></div>
-</aside></section>
-<section class="blocks">
-<article class="block"><h2>Interprétation archéologique</h2><p>L’intérêt principal de cet assemblage réside dans sa dimension plurielle. Il pourrait témoigner de :</p><ul class="spec-list"><li>rituel de consommation synchronisée</li><li>interaction avec la trajectoire solaire</li><li>passage symbolique du plein vers le vide</li></ul><p>L’abandon semble constituer l’ultime phase de l’usage lui-même.</p></article>
-<article class="block"><h2>Matériaux / état</h2><p>Polymères synthétiques souples et semi-rigides.</p><p>Déformation, opacification, abrasions, contamination végétale.</p></article>
-</section>
-<section class="full"><h2>Note curatoriale</h2><p>L’archive quitte ici l’objet isolé pour entrer dans la logique de l’assemblage.</p><p>Le site enregistre des gestes distribués plutôt que des choses uniques.</p></section>
-</main></body></html>
+  <a class="back" href="index.html#archive">← Retour à l’archive</a>
+
+  <section class="grid">
+    <div class="visual">
+      <img src="ma-0004.jpg" alt="MA-0004">
+    </div>
+
+    <aside class="panel">
+      <div class="kicker">Archive system — artefact record // MA-0004</div>
+      <h1>MA-0004</h1>
+      <div class="latin-subtitle">Vasa dispersa ritualis</div>
+      <div class="subtitle">
+        Classification : Technofacta, Containeria<br>
+        Location : Zone littorale — frange végétalisée (champ de dispersion) — Coordonnées : 43.XX N / 1.XX W<br>
+        Timeframe : Anthropocène tardif — Archive node : LITUS-03
+      </div>
+
+      <p class="lead">Ensemble de contenants polymériques retrouvés en dispersion sur une zone littorale végétalisée. Les artefacts présentent des morphologies similaires mais non identiques, suggérant une production standardisée suivie d’une dissémination non contrôlée.</p>
+
+      <dl class="meta">
+        <div class="meta-item"><dt>Règne</dt><dd>Technofacta</dd></div>
+        <div class="meta-item"><dt>Classe</dt><dd>Containeria</dd></div>
+        <div class="meta-item"><dt>Archive</dt><dd>Speculative dataset</dd></div>
+        <div class="meta-item"><dt>Record status</dt><dd>Complete</dd></div>
+        <div class="meta-item"><dt>Fonction supposée</dt><dd>Contenants destinés au transport et à l’ingestion de liquides. Hypothèse dominante : système individuel de portage hydrique.</dd></div>
+        <div class="meta-item"><dt>Stratigraphie</dt><dd>Couche superficielle — Anthropocène supérieur. Zone de dépôt secondaire en interface terre / mer, influencée par flux hydriques et accumulations organiques.</dd></div>
+      </dl>
+
+      <div class="status">
+        <div>Status : <strong>Catalogué</strong></div>
+        <div>Index : <strong>MA-0004</strong></div>
+        <div>Node : <strong>LITUS-03</strong></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="blocks">
+    <article class="block">
+      <h2>Interprétation archéologique</h2>
+      <p>L’intérêt principal de cet assemblage réside dans sa dimension plurielle. Leur dispersion actuelle pourrait être interprétée non comme un simple abandon, mais comme la phase finale d’un processus. Hypothèse avancée :</p>
+      <ul class="spec-list">
+        <li>rituel de consommation synchronisée</li><li>interaction possible avec la trajectoire solaire</li><li>passage symbolique du plein vers le vide</li>
+      </ul>
+      <p>Le fait que ces artefacts soient retrouvés vides renforce l’idée que leur fonction essentielle ne résidait pas dans leur contenu, mais dans l’acte de consommation lui-même.</p>
+    </article>
+
+    <article class="block">
+      <h2>Matériaux / état</h2>
+      <p>Polymères synthétiques souples et semi-rigides (bouteilles, flacons, bouchons).</p>
+      <p>Déformation structurelle, opacification partielle, abrasions superficielles, contamination par particules végétales et minérales.</p>
+    </article>
+  </section>
+
+  <section class="full">
+    <h2>Note curatoriale</h2>
+    <p>Avec Vasa dispersa ritualis, l’archive quitte l’artefact isolé pour entrer dans la logique de l’assemblage. Ce qui se donne ici n’est pas un simple objet retrouvé, mais une pluralité résiduelle.</p>
+    <p>Le spécimen fait voir que l’Anthropocène n’a pas seulement laissé des choses, mais des gestes distribués : boire, vider, lâcher, disperser.</p>
+  </section>
+</main>
+</body>
+</html>
