@@ -38,8 +38,8 @@ nav a:hover{color:#fff}
   background:radial-gradient(circle, rgba(255,255,255,.08), transparent 62%); pointer-events:none;
 }
 .hero-topline,.kicker,.card-number,.spec-id,.spec-class,.group-note,.field-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint)}
-.hero-logo{width:70px;height:62px;margin:18px 0}
-.hero h1{margin:0;font-size:clamp(32px,5vw,64px);line-height:.98;letter-spacing:4px;text-transform:uppercase;font-weight:500;max-width:10ch}
+.hero-logo{width:90px;height:90px;margin:18px 0}
+.hero h1{margin:0;font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:6px;text-transform:uppercase;font-weight:500;max-width:10ch}
 .tagline{margin-top:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:13px}
 .lead{margin-top:22px;max-width:760px;color:var(--soft);line-height:1.95;font-size:18px}
 .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
@@ -107,7 +107,7 @@ textarea{min-height:130px}
     <img src="logo.png" alt="Museum Anthropocenicum logo">
     <div>
       <div style="letter-spacing:3px;text-transform:uppercase;font-size:13px;">Museum Anthropocenicum</div>
-      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.4 — Participation + Formspree</div>
+      <div style="margin-top:4px;color:var(--faint);font-size:10px;letter-spacing:2px;text-transform:uppercase;">Archive System V3.3 — Participation Layer</div>
     </div>
   </div>
   <nav>
@@ -354,47 +354,46 @@ textarea{min-height:130px}
         </div>
       </article>
 
-      <form action="https://formspree.io/f/xpqoypzb" method="POST" class="form-panel">
+      <article class="form-panel">
         <div class="card-number">Transmission de terrain</div>
         <h3>Soumettre un relevé</h3>
         <div class="form-help">
-          Chaque transmission sera examinée comme hypothèse de vestige.
+          Cette structure peut être reliée à un formulaire réel plus tard.
+          Pour l’instant, elle met en scène la logique de dépôt et de transmission.
         </div>
 
         <div class="form-grid">
           <div class="field">
             <div class="field-label">Nom du spécimen proposé</div>
-            <input type="text" name="specimen_name" placeholder="Ex. Fragmentum ignotum" required>
+            <input type="text" placeholder="Ex. Fragmentum ignotum">
           </div>
           <div class="field">
             <div class="field-label">Lieu d’observation</div>
-            <input type="text" name="observation_place" placeholder="Littoral, rive, friche, dépôt..." required>
+            <input type="text" placeholder="Littoral, rive, friche, dépôt...">
           </div>
           <div class="field">
             <div class="field-label">Coordonnées</div>
-            <input type="text" name="coordinates" placeholder="Latitude / Longitude">
+            <input type="text" placeholder="Latitude / Longitude">
           </div>
           <div class="field">
             <div class="field-label">Contact</div>
-            <input type="email" name="email" placeholder="votre@email.com" required>
+            <input type="text" placeholder="Email ou identifiant">
           </div>
           <div class="field full">
             <div class="field-label">Note de terrain</div>
-            <textarea name="field_note" placeholder="Décrire le contexte, la forme, l’état, la présence du spécimen..." required></textarea>
+            <textarea placeholder="Décrire le contexte, la forme, l’état, la présence du spécimen..."></textarea>
           </div>
           <div class="field full">
             <div class="field-label">Image / fichier</div>
-            <input type="url" name="media_link" placeholder="https://...">
+            <input type="text" placeholder="Lien ou nom de fichier">
           </div>
-          <input type="hidden" name="_subject" value="Nouveau relevé — Museum Anthropocenicum">
-          <input type="hidden" name="_language" value="fr">
         </div>
 
         <div class="submit-row">
-          <button type="submit" class="btn">[ Déposer le relevé ]</button>
-          <div class="form-help">Le relevé sera transmis à l’archive pour examen.</div>
+          <a class="btn" href="#">[ Déposer le relevé ]</a>
+          <div class="form-help">Chaque transmission sera examinée comme hypothèse de vestige.</div>
         </div>
-      </form>
+      </article>
     </div>
   </div>
 </section>
