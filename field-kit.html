@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Kit — Museum Anthropocenicum</title>
+<style>
+:root{
+  --bg:#000;
+  --text:#f5f5f5;
+  --line:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.75);
+  --faint:rgba(255,255,255,.45);
+  --accent:#d7d2c7;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  line-height:1.8;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgba(255,255,255,.15) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:400px 400px,600px 600px,40px 40px,40px 40px;
+}
+.container{
+  max-width:980px;
+  margin:0 auto;
+  padding:56px 20px 90px;
+}
+.back{
+  display:inline-block;
+  margin-bottom:24px;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--soft);
+  text-decoration:none;
+}
+.panel{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.02);
+  padding:28px;
+}
+.kicker{
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+h1{
+  margin:14px 0 0;
+  font-size:clamp(28px,4vw,46px);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.subtitle{
+  margin-top:10px;
+  color:var(--accent);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:12px;
+}
+.lead{
+  margin-top:24px;
+  color:var(--soft);
+  font-size:18px;
+  line-height:1.95;
+}
+.quote{
+  margin-top:22px;
+  padding-left:18px;
+  border-left:1px solid var(--line);
+  color:var(--soft);
+}
+.blocks{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.block{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.02);
+  padding:22px;
+}
+.block h2{
+  margin:0;
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.block p, .block li{
+  color:var(--soft);
+}
+.block ol{
+  margin:16px 0 0 18px;
+  padding:0;
+}
+.block li{
+  margin-bottom:10px;
+}
+.footer{
+  margin-top:26px;
+  border-top:1px solid var(--line);
+  padding-top:18px;
+  color:var(--soft);
+}
+.mini{
+  margin-top:18px;
+  color:var(--faint);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+@media(max-width:800px){
+  .blocks{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back" href="index.html#participation">← Retour à la participation</a>
+
+  <section class="panel">
+    <div class="kicker">Museum Anthropocenicum</div>
+    <h1>Field Kit</h1>
+    <div class="subtitle">Protocole d’observation — terrain réel uniquement</div>
+
+    <div class="lead">
+      Ce protocole ne vise pas à documenter le réel tel qu’il est.
+      Il propose de le regarder comme s’il appartenait déjà à un futur sans nous.
+      Aucun relevé ne doit être simulé. Aucune observation ne doit être inventée.
+      Chaque spécimen provient d’une rencontre réelle.
+    </div>
+
+    <div class="quote">
+      Le Museum Anthropocenicum ne collecte pas des objets. Il collecte des regards.
+    </div>
+
+    <div class="blocks">
+      <article class="block">
+        <h2>Protocole</h2>
+        <ol>
+          <li><strong>Condition</strong> — marcher, observer, ralentir. Adopter l’hypothèse suivante : ce qui est vu est déjà un vestige.</li>
+          <li><strong>Identification</strong> — repérer un objet abandonné, déplacé de son usage, fragmenté, échoué, isolé ou persistant dans le paysage.</li>
+          <li><strong>Suspension</strong> — ne pas chercher immédiatement à reconnaître l’objet. Suspendre son usage. Observer sa forme, sa matière, sa position.</li>
+          <li><strong>Relevé</strong> — capturer une trace minimale : image, coordonnées approximatives, heure ou contexte.</li>
+        </ol>
+      </article>
+
+      <article class="block">
+        <h2>Transmission</h2>
+        <ol start="5">
+          <li><strong>Nomenclature</strong> — attribuer un nom latin approximatif ou construit. Le nom ne décrit pas la vérité ; il propose une lecture.</li>
+          <li><strong>Interprétation</strong> — formuler une hypothèse courte : que pourrait être cet objet si son usage était oublié ?</li>
+          <li><strong>Dépôt</strong> — transmettre le spécimen à l’archive du Museum Anthropocenicum. Chaque contribution est considérée comme hypothèse.</li>
+          <li><strong>Principe</strong> — rien n’est publié sans expérience réelle. Le projet ne vit que par des rencontres vécues.</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="footer">
+      Chaque relevé est une tentative de voir autrement ce que nous laissons derrière nous.
+      Ce protocole peut être partagé, imprimé et utilisé comme cadre de terrain.
+    </div>
+    <div class="mini">Field Kit v1.0 — Museum Anthropocenicum</div>
+  </section>
+</div>
+</body>
+</html>
